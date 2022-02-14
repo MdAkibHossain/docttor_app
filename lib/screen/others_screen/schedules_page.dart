@@ -1,3 +1,5 @@
+import 'package:design/screen/get_started.dart';
+import 'package:design/screen/others_screen/pcp_notes_one.dart';
 import 'package:flutter/material.dart';
 
 class Schedules extends StatefulWidget {
@@ -22,7 +24,7 @@ class _SchedulesState extends State<Schedules> {
                 height: screenHeight*0.50,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                      colorFilter:  ColorFilter.mode(Colors.grey.withOpacity(0.1), BlendMode.dstATop),
+                      colorFilter:  ColorFilter.mode(Colors.grey.withOpacity(0.07), BlendMode.dstATop),
                       image: AssetImage("assets/images/clock.png"), fit: BoxFit.cover)
                 ),
                 child: Column(
@@ -40,7 +42,8 @@ class _SchedulesState extends State<Schedules> {
 
                           Padding(
                             padding:  EdgeInsets.only(left: screenWidth*0.02),
-                            child: Text("Dr.Mahmood", style: TextStyle(fontSize: screenWidth*0.06, fontWeight: FontWeight.bold)),
+                            child: Text("Dr.Mahmood", style: TextStyle(fontSize: screenWidth*0.06,
+                                fontWeight: FontWeight.bold)),
                           ),
                           Spacer(),
                           Container(
@@ -59,7 +62,7 @@ class _SchedulesState extends State<Schedules> {
                     Center(
                       child:
                       Text("10 Patient(S)", style: TextStyle(
-                          fontSize: screenWidth*0.06, fontWeight: FontWeight.bold, color: Colors.black54),
+                          fontSize: screenWidth*0.05, fontWeight: FontWeight.bold, color: Colors.black54),
                       ),
                     ),
                     SizedBox(height: screenHeight*0.04,),
@@ -79,10 +82,10 @@ class _SchedulesState extends State<Schedules> {
                                     ),
                                     child: Image.asset("assets/images/men.png"),
                                   ),
-                                  SizedBox(height: screenHeight*0.02),
+                                  SizedBox(height: screenHeight*0.01),
                                   Text("Jabed\n"
                                       "Ahmad", style: TextStyle(
-                                      fontSize: screenWidth*0.04, fontWeight: FontWeight.bold)),
+                                      fontSize: screenWidth*0.03, fontWeight: FontWeight.bold)),
 
                                 ],
                               );
@@ -94,27 +97,21 @@ class _SchedulesState extends State<Schedules> {
                 ),
               ),
               SizedBox(height: screenHeight*0.02),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                    height: screenHeight*0.04,
-                    width: screenWidth*0.15,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(360)
-                    ),
-                    child: Image.asset("assets/images/menu.png"),
-                  ),
-                  Container(
-                    height: screenHeight*0.05,
-                    width: screenWidth*0.20,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(360)
-                    ),
-                    child: Image.asset("assets/images/menu2.png"),
-                  ),
-                ],
+              Padding(
+                padding:  EdgeInsets.only(right: screenWidth*0.07),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    InkWell(
+                      onTap: (){},
+                        child: Icon(Icons.menu_outlined, size: 39,)),
+                    SizedBox(width: screenHeight*0.02),
+                    InkWell(
+                        onTap: (){},
+                        child: Icon(Icons.grid_view, size: 35,)),
+                  ],
+                ),
               ),
 
               SizedBox(height: screenHeight*0.02),
@@ -223,6 +220,60 @@ class _SchedulesState extends State<Schedules> {
                 ),
               ),
 
+              SizedBox(height: screenWidth*0.04),
+              Padding(
+                padding:  EdgeInsets.all(screenWidth*0.05),
+                child: Row(
+                  children: [
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: allColor.backGroundColor
+                      ),
+                        onPressed: (){
+
+                        },
+                        child: Text("View Details")),
+                    Spacer(),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: allColor.backGroundColor
+                      ),
+                        onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>PcpNotesOne()));
+                        },
+                        child: Text("PCP Visite Summary")),
+                  ],
+                ),
+              ),
+              SizedBox(height: screenHeight*0.03),
+              Padding(
+                padding:  EdgeInsets.only(left: screenWidth*0.05, right: screenWidth*0.05),
+                child: Container(
+                  width: screenWidth,
+                  height: screenHeight*0.05,
+                  child: Row(
+                    children: [
+                      Container(
+                        child:
+                        InkWell(
+                            onTap: (){
+
+                            },
+                            child: Image.asset("assets/images/right.png")),
+                      ),
+                      Spacer(),
+                      Container(
+                        child:
+                        InkWell(
+                            onTap: (){
+
+                            },
+                            child: Image.asset("assets/images/setting.png")),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         )
