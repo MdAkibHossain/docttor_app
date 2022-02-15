@@ -1,16 +1,15 @@
 import 'package:design/screen/get_started.dart';
-import 'package:design/screen/others_screen/order_labs_two.dart';
-import 'package:design/screen/others_screen/stop_old_medicine.dart';
+import 'package:design/screen/others_screen/add_new_medicine_two.dart';
 import 'package:flutter/material.dart';
 
-class OrderLabs extends StatefulWidget {
-  const OrderLabs({Key? key}) : super(key: key);
+class AddNewMedicine extends StatefulWidget {
+  const AddNewMedicine({Key? key}) : super(key: key);
 
   @override
-  _OrderLabsState createState() => _OrderLabsState();
+  _AddNewMedicineState createState() => _AddNewMedicineState();
 }
 
-class _OrderLabsState extends State<OrderLabs> {
+class _AddNewMedicineState extends State<AddNewMedicine> {
   @override
   Widget build(BuildContext context) {
     final double screenHeight= MediaQuery.of(context).size.height;
@@ -22,6 +21,7 @@ class _OrderLabsState extends State<OrderLabs> {
             padding:  EdgeInsets.all(screenWidth*0.05),
             child: SingleChildScrollView(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: screenHeight*0.02,),
                   Row(
@@ -33,7 +33,7 @@ class _OrderLabsState extends State<OrderLabs> {
                           onPressed: (){
 
                           },
-                          child: Text("Order Labs")),
+                          child: Text("Add New Medicine")),
                       Spacer(),
                       Container(
                           height: screenHeight*0.07,
@@ -71,23 +71,12 @@ class _OrderLabsState extends State<OrderLabs> {
                       ),
                     ],
                   ),
-                  SizedBox(height: screenWidth*0.15),
-                  Container(
-                    // color: Color(0xffff7e11),
-                    // height: screenHeight*0.06,
-                    width: screenWidth,
-                    child: Padding(
-                      padding:  EdgeInsets.all(screenWidth*0.03),
-                      child: Text("Here doctor will do the current "
-                          "diagnose and advise about new "
-                          "medicine/lab report if needed"
-                          , style: TextStyle(fontSize: screenWidth*0.05,
-                      )),
-                    ),
-                  ),
 
-                  SizedBox(height: screenWidth*0.15),
-                  
+                  SizedBox(height: screenWidth*0.25),
+                  Text("Current list of medicine", style: TextStyle(fontSize: screenWidth*0.05)),
+
+                  SizedBox(height: screenWidth*0.25),
+
                   Padding(
                     padding:  EdgeInsets.all(screenWidth*0.02),
                     child: Row(
@@ -99,7 +88,9 @@ class _OrderLabsState extends State<OrderLabs> {
                                 ),
                                 primary: allColor.backGroundColor
                             ),
-                            onPressed: (){},
+                            onPressed: (){
+                              // Navigator.push(context, MaterialPageRoute(builder: (context)=>()));
+                            },
                             child:
                             Padding(
                               padding:  EdgeInsets.only(left: screenWidth*0.05, top: screenWidth*0.02,
@@ -116,7 +107,7 @@ class _OrderLabsState extends State<OrderLabs> {
                                 primary: Color(0xffb3d9ef)
                             ),
                             onPressed: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderLabsTwo()));
+                               Navigator.push(context, MaterialPageRoute(builder: (context)=>AddNewMedicineTwo()));
                             },
                             child:
                             Padding(
@@ -173,22 +164,24 @@ class _OrderLabsState extends State<OrderLabs> {
                     )
                 ),
                 Spacer(),
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30)
-                        ),
-                        primary: allColor.elevatedBtnColor
-                    ),
-                    onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>StopOldMedicine()));
-                    },
-                    child:
-                    Padding(
-                      padding:  EdgeInsets.only(left: screenWidth*0.05, top: screenWidth*0.02,
-                          bottom: screenWidth*0.02, right: screenWidth*0.05),
-                      child: Text('Next', style: TextStyle(fontSize: screenWidth*0.04,)),
-                    )
+                Container(
+                  height: screenHeight*0.05,
+                  child:
+                  InkWell(
+                      onTap: (){
+
+                      },
+                      child: Image.asset("assets/images/right.png")),
+                ),
+                Spacer(),
+                Container(
+                  height: screenHeight*0.05,
+                  child:
+                  InkWell(
+                      onTap: (){
+
+                      },
+                      child: Image.asset("assets/images/setting.png")),
                 ),
               ],
             ),

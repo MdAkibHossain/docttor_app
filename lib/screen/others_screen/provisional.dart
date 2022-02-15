@@ -7,7 +7,12 @@ class Provitional extends StatefulWidget {
   @override
   _ProvitionalState createState() => _ProvitionalState();
 }
-
+List<String>abcdList=[
+  "A",
+  "B",
+  "C",
+];
+String ? initVal;
 class _ProvitionalState extends State<Provitional> {
   @override
   Widget build(BuildContext context) {
@@ -69,46 +74,35 @@ class _ProvitionalState extends State<Provitional> {
                       ),
                     ],
                   ),
-                  SizedBox(height: screenWidth*0.05),
+                  SizedBox(height: screenWidth*0.15),
+
                   Container(
-                    // color: Color(0xffff7e11),
-                    // height: screenHeight*0.06,
                     width: screenWidth,
+                    height: screenHeight*0.10,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey)),
                     child: Padding(
                       padding:  EdgeInsets.all(screenWidth*0.03),
-                      child: Text("Current medical diagnose\n "
-                          "will appear here", style: TextStyle(fontSize: screenWidth*0.05,
-                          )),
-                    ),),
+                      child: DropdownButton(
+                        iconSize: 60,
+                          hint: Text("Current medical diagnose \nwill appear here",
+                              style: TextStyle(fontSize: screenWidth*0.05)),
+                        items: abcdList.map(
+                                (val) => DropdownMenuItem(
+                                value: val,
+                                child: Text(val,
+                                  style: TextStyle(color: Colors.deepOrange),
+                                )
+                            )
+                        ).toList(),
 
-                  SizedBox(height: screenWidth*0.05),
-                  Container(
-                    decoration: BoxDecoration(
-                       color: Color(0xffdcebf1),
-                        borderRadius: BorderRadius.circular(10)
+                        onChanged: (newVal){
+                          setState(() {
+                            initVal=newVal.toString();
+                          });
+                        },
+                        value: initVal),
                     ),
-
-                    width: screenWidth,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding:  EdgeInsets.all(screenWidth*0.03),
-                          child: Text("Text…..", style: TextStyle(fontSize: screenWidth*0.05,)),
-                        ),
-                        SizedBox(height: screenWidth*0.05),
-                        Padding(
-                          padding:  EdgeInsets.all(screenWidth*0.03),
-                          child: Text("Text…..", style: TextStyle(fontSize: screenWidth*0.05,)),
-                        ),
-                        SizedBox(height: screenWidth*0.05),
-                        Padding(
-                          padding:  EdgeInsets.all(screenWidth*0.03),
-                          child: Text("Text…..", style: TextStyle(fontSize: screenWidth*0.05,)),
-                        ),
-                        SizedBox(height: screenWidth*0.10),
-                      ],
-                    )
                   ),
                 ],
               ),

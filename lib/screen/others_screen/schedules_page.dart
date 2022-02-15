@@ -1,5 +1,6 @@
 import 'package:design/screen/get_started.dart';
 import 'package:design/screen/others_screen/pcp_notes_one.dart';
+import 'package:design/screen/others_screen/view_patient_details.dart';
 import 'package:flutter/material.dart';
 
 class Schedules extends StatefulWidget {
@@ -230,7 +231,7 @@ class _SchedulesState extends State<Schedules> {
                         primary: allColor.backGroundColor
                       ),
                         onPressed: (){
-
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ViewPatientDetails()));
                         },
                         child: Text("View Details")),
                     Spacer(),
@@ -251,7 +252,8 @@ class _SchedulesState extends State<Schedules> {
                 child: Container(
                   width: screenWidth,
                   height: screenHeight*0.05,
-                  child: Row(
+                  child:
+                  Row(
                     children: [
                       Container(
                         child:

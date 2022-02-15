@@ -1,4 +1,7 @@
 import 'package:design/screen/get_started.dart';
+import 'package:design/screen/others_screen/medicine.dart';
+import 'package:design/screen/others_screen/my_wallet.dart';
+import 'package:design/screen/others_screen/profile.dart';
 import 'package:design/screen/others_screen/schedules_page.dart';
 import 'package:flutter/material.dart';
 
@@ -53,13 +56,8 @@ class _HomePageState extends State<HomePage> {
                           Padding(
                             padding:  EdgeInsets.only(left: screenWidth*0.05, top: screenWidth*0.02),
                             child:
-                            InkWell(
-                              onTap: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>Schedules()));
-                              },
-                              child: Text("4. Schedules", style: TextStyle(fontSize: screenWidth*0.05,
-                                  fontWeight: FontWeight.bold, color: allColor.simpleTextColor)),
-                            ),
+                            Text("4. Schedules", style: TextStyle(fontSize: screenWidth*0.05,
+                                fontWeight: FontWeight.bold, color: allColor.simpleTextColor)),
                           ),
                           Padding(
                             padding:  EdgeInsets.only(left: screenWidth*0.30),
@@ -80,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                   )),
 
               Padding(
-                  padding:  EdgeInsets.only(left: screenWidth*0.07, right: screenWidth*0.07, top: screenWidth*0.05),
+                  padding:  EdgeInsets.only(left: screenWidth*0.03, right: screenWidth*0.03, top: screenWidth*0.05),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -107,15 +105,15 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(height: screenHeight*0.35),
                       Container(
                         width: screenWidth,
-                        height: screenHeight*0.20,
+                        height: screenHeight*0.17,
                         decoration: BoxDecoration(
                             color: allColor.homebgColor,
                             borderRadius: BorderRadius.circular(30)
                         ),
                         child:
                         Padding(
-                          padding:  EdgeInsets.only(left: screenHeight*0.02, right: screenHeight*0.02,
-                          top: screenHeight*0.04, bottom: screenHeight*0.04),
+                          padding:  EdgeInsets.only(left: screenHeight*0.01, right: screenHeight*0.01,
+                          top: screenHeight*0.02, bottom: screenHeight*0.02),
                           child:
                           Row(
                             children: [
@@ -128,7 +126,7 @@ class _HomePageState extends State<HomePage> {
                                         child:
                                         InkWell(
                                             onTap: (){
-
+                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Schedules()));
                                             },
                                             child: Image.asset("assets/images/men.png")),
                                       ),
@@ -170,7 +168,7 @@ class _HomePageState extends State<HomePage> {
                                         child:
                                         InkWell(
                                           onTap: (){
-
+                                            Navigator.push(context, MaterialPageRoute(builder: (context)=>MyWallet()));
                                           },
                                             child: Image.asset("assets/images/tk.png")),
                                       ),
@@ -181,7 +179,28 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ],
                               ),
-
+                              Spacer(),
+                              Row(
+                                children: [
+                                  Column(
+                                    children: [
+                                      Container(
+                                        height: screenHeight*0.08,
+                                        child:
+                                        InkWell(
+                                            onTap: (){
+                                               Navigator.push(context, MaterialPageRoute(builder: (context)=>Medicine()));
+                                            },
+                                            child: Image.asset("assets/images/medicine.png")),
+                                      ),
+                                      SizedBox(height: screenHeight*0.01),
+                                      Text("Medicine", style: TextStyle(fontSize: screenWidth*0.04,
+                                          fontWeight: FontWeight.bold))
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              Spacer(),
                             ],
                           ),
                         ),
@@ -211,6 +230,16 @@ class _HomePageState extends State<HomePage> {
 
                                     },
                                     child: Image.asset("assets/images/setting.png")),
+                              ),
+
+                              Spacer(),
+                              Container(
+                                child:
+                                InkWell(
+                                    onTap: (){
+                                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile()));
+                                    },
+                                    child: Image.asset("assets/images/profile.png")),
                               ),
                             ],
                           ),

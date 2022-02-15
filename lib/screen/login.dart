@@ -1,6 +1,7 @@
 import 'package:design/helper/custom_text_field.dart';
-import 'package:design/screen/home_page.dart';
+import 'package:design/screen/forgot_password.dart';
 import 'package:design/screen/get_started.dart';
+import 'package:design/screen/home_page.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -56,13 +57,13 @@ class _LoginState extends State<Login> {
 
                   Padding(
                     padding:  EdgeInsets.only(left: screenWidth*0.03),
-                    child: Text("Email", style: TextStyle(fontSize: screenWidth*0.04),),
+                    child: Text("Phone", style: TextStyle(fontSize: screenWidth*0.04),),
                   ),
                   SizedBox(height: screenWidth*0.02,),
                   CustomTextField(
                     controller: _emailController,
-                    hintText: "Enter your email",
-                    suffixIcon: Icon(Icons.email),
+                    hintText: "Enter your phone number",
+                    suffixIcon: Icon(Icons.phone),
                     obsecureValue: false,
                   ),
                   SizedBox(height: screenHeight*0.03,),
@@ -78,15 +79,19 @@ class _LoginState extends State<Login> {
                     obsecureValue: true,
                   ),
 
+                  SizedBox(height: screenWidth*0.03),
+                  InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ForgottPassword()));
+                    },
+                      child: Text("Forgot Password?", style: TextStyle(fontSize: screenWidth*0.04, color: Colors.blue),)),
                   SizedBox(height: screenWidth*0.15),
                   Center(
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             primary:allColor.backGroundColor,
                             shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)
-                            )
-                        ),
+                                borderRadius: BorderRadius.circular(10))),
                         onPressed: (){
                           if (_formKey.currentState!.validate())
                             Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));

@@ -1,6 +1,7 @@
 import 'package:design/helper/custom_text_field.dart';
 import 'package:design/screen/home_page.dart';
 import 'package:design/screen/get_started.dart';
+import 'package:design/screen/phone_number_verify.dart';
 import 'package:flutter/material.dart';
 
 class SignUp extends StatefulWidget {
@@ -68,12 +69,12 @@ class _SignUpState extends State<SignUp> {
 
                   Padding(
                     padding:  EdgeInsets.only(left: screenWidth*0.03),
-                    child: Text("Email", style: TextStyle(fontSize: screenWidth*0.04),),
+                    child: Text("Phone", style: TextStyle(fontSize: screenWidth*0.04),),
                   ),
                   SizedBox(height: screenWidth*0.02,),
                   CustomTextField(
                     controller: _emailController,
-                    hintText: "Enter your email",
+                    hintText: "Enter your phone number",
                     suffixIcon: Icon(Icons.email),
                     obsecureValue: false,
                   ),
@@ -116,7 +117,7 @@ class _SignUpState extends State<SignUp> {
                         ),
                         onPressed: (){
                           if (_signUpKey.currentState!.validate())
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>PhoneNumberVerify()));
                         },
                         child:
                         Padding(
