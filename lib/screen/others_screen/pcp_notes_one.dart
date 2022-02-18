@@ -27,49 +27,22 @@ class _PcpNotesOneState extends State<PcpNotesOne> {
                     children: [
                       ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              primary: allColor.backGroundColor
-                          ),
-                          onPressed: (){
-
-                          },
+                              primary: allColor.backGroundColor),
+                          onPressed: (){},
                           child: Text("PCP Notes")),
                       Spacer(),
                       Container(
                           height: screenHeight*0.07,
-                          child:Image.asset("assets/images/k.jpeg")),
-                    ],
-                  ),
+                          child:Image.asset("assets/images/k.jpeg"))]),
                   SizedBox(height: screenWidth*0.05,),
-                  Row(
-                    children: [
-                      Row(
-                        children: [
-                          Column(
-                            children: [
-                              Padding(
-                                padding:  EdgeInsets.only(left: screenWidth*0.05, right: screenWidth*0.30),
-                                child: Text("Paid", style: TextStyle(fontSize: screenWidth*0.03,
-                                    fontWeight: FontWeight.bold)),
-                              ),
-                              SizedBox(height: screenWidth*0.01,),
-                              Text("Javed Ahmad M/46", style: TextStyle(fontSize: screenWidth*0.06,
-                                  fontWeight: FontWeight.bold)),
-
-                            ],
-                          )
-                        ],
-                      ),
-                      Spacer(),
-                      Row(
-                        children: [
-                          Container(
-                            height: screenHeight*0.08,
-                            child: Image(image: AssetImage("assets/images/men.png")),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                  Row(children: [
+                    Text("Javed Ahmad M/46", style: TextStyle(fontSize: screenWidth*0.06,
+                        fontWeight: FontWeight.bold)),
+                    Spacer(),
+                    Container(
+                      height: screenHeight*0.08,
+                      child: Image(image: AssetImage("assets/images/men.png")),
+                    )]),
                   SizedBox(height: screenWidth*0.05),
                   Container(
                     color: Color(0xffe2eaf5),
@@ -84,9 +57,7 @@ class _PcpNotesOneState extends State<PcpNotesOne> {
                   Container(
                     decoration: BoxDecoration(
                         color: Color(0xffdcebf1),
-                      borderRadius: BorderRadius.circular(10)
-                    ),
-
+                      borderRadius: BorderRadius.circular(10)),
                     width: screenWidth,
                     child: Padding(
                       padding:  EdgeInsets.all(screenWidth*0.03),
@@ -108,18 +79,20 @@ class _PcpNotesOneState extends State<PcpNotesOne> {
                           "drugs twice and"
                           "drugs twice and"
                           "drugs twice and"
-                          "),", style: TextStyle(fontSize: screenWidth*0.05,)),
-                    ),),
-
+                          "),", style: TextStyle(fontSize: screenWidth*0.05)))),
                   SizedBox(height: screenWidth*0.05),
-                  Container(
-                    color: Color(0xfff5f3c6),
-                    height: screenHeight*0.06,
-                    width: screenWidth,
-                    child: Padding(
-                      padding:  EdgeInsets.all(screenWidth*0.03),
-                      child: Text("Write Notes to PCP", style: TextStyle(fontSize: screenWidth*0.05,)),
-                    ),),
+                  InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>PcpNextPage()));
+                    },
+                    child: Container(
+                      color: Color(0xfff5f3c6),
+                      height: screenHeight*0.06,
+                      width: screenWidth,
+                      child: Padding(
+                        padding:  EdgeInsets.all(screenWidth*0.03),
+                        child: Text("Write Notes to PCP", style: TextStyle(fontSize: screenWidth*0.05)))),
+                  ),
 
 
                 ],
@@ -133,20 +106,13 @@ class _PcpNotesOneState extends State<PcpNotesOne> {
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30)
-                        ),
-                        primary: Colors.blue
-                    ),
-                    onPressed: (){
-                      Navigator.pop(context);
-                    },
-                    child:
-                    Padding(
+                            borderRadius: BorderRadius.circular(30)),
+                        primary: Colors.blue),
+                    onPressed: (){Navigator.pop(context);},
+                    child: Padding(
                       padding:  EdgeInsets.only(left: screenWidth*0.05, top: screenWidth*0.02,
                           bottom: screenWidth*0.02, right: screenWidth*0.05),
-                      child: Text('Back', style: TextStyle(fontSize: screenWidth*0.04,)),
-                    )
-                ),
+                      child: Text('Back', style: TextStyle(fontSize: screenWidth*0.04,)))),
                 Spacer(),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(

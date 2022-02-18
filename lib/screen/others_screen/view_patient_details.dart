@@ -1,4 +1,5 @@
 import 'package:design/screen/get_started.dart';
+import 'package:design/screen/home_page.dart';
 import 'package:flutter/material.dart';
 
 class ViewPatientDetails extends StatefulWidget {
@@ -52,17 +53,39 @@ class _ViewPatientDetailsState extends State<ViewPatientDetails> {
                           ],
                         ),
                       ),
-                      Padding(
-                        padding:  EdgeInsets.only(left: screenWidth*0.05),
-                        child:
-                        Text("Schedule 10 Oct 2021", style: TextStyle(
-                            fontSize: screenWidth*0.06, fontWeight: FontWeight.bold)),
-                      ),
-                      SizedBox(height: screenHeight*0.02,),
-                      Center(
-                        child:
-                        Text("10 Patient(S)", style: TextStyle(
-                            fontSize: screenWidth*0.05, fontWeight: FontWeight.bold, color: Colors.black54),
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            Container(
+                                width: screenWidth,
+                                child: Column(
+                                    children: [
+                                      Padding(padding:  EdgeInsets.only(left: screenWidth*0.05),
+                                          child: Text("Schedule 10 Oct 2021", style: TextStyle(fontSize: screenWidth*0.06, fontWeight: FontWeight.bold))),
+                                      SizedBox(height: screenHeight*0.02,),
+                                      Center(child: Text("10 Patient(S)", style: TextStyle(
+                                          fontSize: screenWidth*0.05, fontWeight: FontWeight.bold, color: Colors.black54)))])),
+                            Container(
+                                width: screenWidth,
+                                child: Column(
+                                    children: [
+                                      Padding(padding:  EdgeInsets.only(left: screenWidth*0.05),
+                                          child: Text("Schedule 09 Oct 2021", style: TextStyle(fontSize: screenWidth*0.06, fontWeight: FontWeight.bold))),
+                                      SizedBox(height: screenHeight*0.02,),
+                                      Center(child: Text("5 Patient(S)", style: TextStyle(
+                                          fontSize: screenWidth*0.05, fontWeight: FontWeight.bold, color: Colors.black54)))])),
+                            Container(
+                                width: screenWidth,
+                                child: Column(
+                                    children: [
+                                      Padding(padding:  EdgeInsets.only(left: screenWidth*0.05),
+                                          child: Text("Schedule 08 Oct 2021", style: TextStyle(fontSize: screenWidth*0.06, fontWeight: FontWeight.bold))),
+                                      SizedBox(height: screenHeight*0.02,),
+                                      Center(child: Text("15 Patient(S)", style: TextStyle(
+                                          fontSize: screenWidth*0.05, fontWeight: FontWeight.bold, color: Colors.black54)))])),
+
+                          ],
                         ),
                       ),
                       SizedBox(height: screenHeight*0.04,),
@@ -96,25 +119,7 @@ class _ViewPatientDetailsState extends State<ViewPatientDetails> {
                     ],
                   ),
                 ),
-                SizedBox(height: screenHeight*0.02),
-                Padding(
-                  padding:  EdgeInsets.only(right: screenWidth*0.07),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      InkWell(
-                          onTap: (){},
-                          child: Icon(Icons.menu_outlined, size: 39,)),
-                      SizedBox(width: screenHeight*0.02),
-                      InkWell(
-                          onTap: (){},
-                          child: Icon(Icons.grid_view, size: 35,)),
-                    ],
-                  ),
-                ),
-
-                SizedBox(height: screenHeight*0.02),
+                SizedBox(height: screenHeight*0.04),
                 Padding(
                   padding:  EdgeInsets.all(screenWidth*0.02),
                   child:
@@ -251,45 +256,43 @@ class _ViewPatientDetailsState extends State<ViewPatientDetails> {
                     ],
                   )),
                 Padding(
-                  padding:  EdgeInsets.all(screenWidth*0.05),
-                  child: Row(
-                    children: [
-                      ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              primary: allColor.backGroundColor),
-                          onPressed: (){},
-                          child: Text("View Details")),
-                      Spacer()])),
-                Padding(
-                  padding:  EdgeInsets.only(left: screenWidth*0.05, right: screenWidth*0.05),
-                  child: Container(
-                    width: screenWidth,
-                    height: screenHeight*0.05,
-                    child:
-                    Row(
-                      children: [
-                        Container(
-                          child:
-                          InkWell(
-                              onTap: (){
-
-                              },
-                              child: Image.asset("assets/images/right.png")),
-                        ),
-                        Spacer(),
-                        Container(
-                          child:
-                          InkWell(
-                              onTap: (){
-
-                              },
-                              child: Image.asset("assets/images/setting.png")),
-                        ),
-                      ],
-                    ),
-                  ),
+                  padding: const EdgeInsets.all(15),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30)),
+                          primary: Colors.blue),
+                      onPressed: (){Navigator.pop(context);},
+                      child: Padding(
+                          padding:  EdgeInsets.only(left: screenWidth*0.05, top: screenWidth*0.02,
+                              bottom: screenWidth*0.02, right: screenWidth*0.05),
+                          child: Text('Back', style: TextStyle(fontSize: screenWidth*0.04,)))),
                 ),
               ],
+            ),
+          ),
+          bottomNavigationBar:Padding(
+            padding:  EdgeInsets.all(screenWidth*0.05),
+            child: Container(
+              width: screenWidth,
+              height: screenHeight*0.05,
+              child:
+              Row(
+                children: [
+                  InkWell(
+                    onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));},
+                      child: Icon(Icons.home, size: 40, color: allColor.backGroundColor)),
+                  Spacer(),
+                  Container(child: InkWell(onTap: (){},
+                      child: Image.asset("assets/images/right.png"))),
+                  Spacer(),
+                  Container(
+                    child:
+                    InkWell(onTap: (){},
+                        child: Image.asset("assets/images/setting.png")),
+                  ),
+                ],
+              ),
             ),
           ),
         )

@@ -39,36 +39,14 @@ class _SpecialistAssessmentState extends State<SpecialistAssessment> {
                     ],
                   ),
                   SizedBox(height: screenWidth*0.05,),
-                  Row(
-                    children: [
-                      Row(
-                        children: [
-                          Column(
-                            children: [
-                              Padding(
-                                padding:  EdgeInsets.only(left: screenWidth*0.05, right: screenWidth*0.30),
-                                child: Text("Paid", style: TextStyle(fontSize: screenWidth*0.03,
-                                    fontWeight: FontWeight.bold)),
-                              ),
-                              SizedBox(height: screenWidth*0.01,),
-                              Text("Javed Ahmad M/46", style: TextStyle(fontSize: screenWidth*0.06,
-                                  fontWeight: FontWeight.bold)),
-
-                            ],
-                          )
-                        ],
-                      ),
-                      Spacer(),
-                      Row(
-                        children: [
-                          Container(
-                            height: screenHeight*0.08,
-                            child: Image(image: AssetImage("assets/images/men.png")),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                  Row(children: [
+                    Text("Javed Ahmad M/46", style: TextStyle(fontSize: screenWidth*0.06,
+                        fontWeight: FontWeight.bold)),
+                    Spacer(),
+                    Container(
+                      height: screenHeight*0.08,
+                      child: Image(image: AssetImage("assets/images/men.png")),
+                    )]),
                   SizedBox(height: screenWidth*0.15),
                   Container(
                     // color: Color(0xffff7e11),

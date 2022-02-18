@@ -12,6 +12,8 @@ List<String>abcdList=[
   "B",
   "C",
 ];
+List<String> rules=[];
+String ? initValRules;
 String ? initVal;
 class _ProvitionalState extends State<Provitional> {
   @override
@@ -25,85 +27,71 @@ class _ProvitionalState extends State<Provitional> {
             padding:  EdgeInsets.all(screenWidth*0.05),
             child: SingleChildScrollView(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: screenHeight*0.02,),
                   Row(
                     children: [
                       ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              primary: allColor.backGroundColor
-                          ),
-                          onPressed: (){
-
-                          },
-                          child: Text("Provisional Diagnose")),
+                              primary: allColor.backGroundColor),
+                          onPressed: (){},
+                          child: Text("Provisional Diagnosis")),
                       Spacer(),
                       Container(
                           height: screenHeight*0.07,
-                          child:Image.asset("assets/images/k.jpeg")),
-                    ],
-                  ),
+                          child:Image.asset("assets/images/k.jpeg"))]),
                   SizedBox(height: screenWidth*0.05,),
-                  Row(
-                    children: [
-                      Row(
-                        children: [
-                          Column(
-                            children: [
-                              Padding(
-                                padding:  EdgeInsets.only(left: screenWidth*0.05, right: screenWidth*0.30),
-                                child: Text("Paid", style: TextStyle(fontSize: screenWidth*0.03,
-                                    fontWeight: FontWeight.bold)),
-                              ),
-                              SizedBox(height: screenWidth*0.01,),
-                              Text("Javed Ahmad M/46", style: TextStyle(fontSize: screenWidth*0.06,
-                                  fontWeight: FontWeight.bold)),
-
-                            ],
-                          )
-                        ],
-                      ),
-                      Spacer(),
-                      Row(
-                        children: [
-                          Container(
-                            height: screenHeight*0.08,
-                            child: Image(image: AssetImage("assets/images/men.png")),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                  Row(children: [
+                    Text("Javed Ahmad M/46", style: TextStyle(fontSize: screenWidth*0.06,
+                        fontWeight: FontWeight.bold)),
+                    Spacer(),
+                    Container(
+                      height: screenHeight*0.08,
+                      child: Image(image: AssetImage("assets/images/men.png")),
+                    )]),
                   SizedBox(height: screenWidth*0.15),
+                  Text("Current medical diagnose \nwill appear here",
+                      style: TextStyle(fontSize: screenWidth*0.05)),
+                  SizedBox(height: screenHeight*0.05,),
+                  Row(
+                      children: [
+                        Flexible(
+                            child: TextFormField(
+                                decoration: InputDecoration(
+                                    hintText: "Search Diagnosis",
+                                    focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                        borderSide: BorderSide(color: Colors.black12)),
+                                    focusColor: Colors.black12,
+                                    border: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Colors.black12),
+                                        borderRadius: BorderRadius.circular(10))))),
+                        SizedBox(width: screenWidth*0.02,),
+                        Container(
+                          height: screenHeight*0.07,
+                          decoration: BoxDecoration(
+                              color: Colors.grey,
+                              border: Border.all(
+                                  color: Colors.grey),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Center(
+                            child: DropdownButton(
+                                iconDisabledColor: Colors.white,
+                                iconEnabledColor: Colors.white,
+                                hint: Text('Diagnosis', style: TextStyle(color: Colors.white)),
+                                items: rules.map((val) => DropdownMenuItem(
+                                    value: val,
+                                    child: Text(val))).toList(),
+                                onChanged: (newVal){
+                                  setState(() {
+                                    initValRules=newVal.toString();
+                                  });
+                                }),
+                          ),
+                        )
 
-                  Container(
-                    width: screenWidth,
-                    height: screenHeight*0.10,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey)),
-                    child: Padding(
-                      padding:  EdgeInsets.all(screenWidth*0.03),
-                      child: DropdownButton(
-                        iconSize: 60,
-                          hint: Text("Current medical diagnose \nwill appear here",
-                              style: TextStyle(fontSize: screenWidth*0.05)),
-                        items: abcdList.map(
-                                (val) => DropdownMenuItem(
-                                value: val,
-                                child: Text(val,
-                                  style: TextStyle(color: Colors.deepOrange),
-                                )
-                            )
-                        ).toList(),
-
-                        onChanged: (newVal){
-                          setState(() {
-                            initVal=newVal.toString();
-                          });
-                        },
-                        value: initVal),
-                    ),
-                  ),
+                      ]),
                 ],
               ),
             ),

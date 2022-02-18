@@ -1,4 +1,5 @@
 import 'package:design/screen/get_started.dart';
+import 'package:design/screen/others_screen/medicine_list.dart';
 import 'package:design/screen/others_screen/order_labs_two.dart';
 import 'package:design/screen/others_screen/stop_old_medicine.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,14 @@ class OrderLabs extends StatefulWidget {
   @override
   _OrderLabsState createState() => _OrderLabsState();
 }
-
+List<String> rules=[
+  "Before meal",
+  "After meal",
+  "2 times daily\n"
+      "after meal",
+  "3 times daily ",
+  "Continue"];
+String ? initValRules;
 class _OrderLabsState extends State<OrderLabs> {
   @override
   Widget build(BuildContext context) {
@@ -41,52 +49,55 @@ class _OrderLabsState extends State<OrderLabs> {
                     ],
                   ),
                   SizedBox(height: screenWidth*0.05,),
+                  Row(children: [
+                    Text("Javed Ahmad M/46", style: TextStyle(fontSize: screenWidth*0.06,
+                        fontWeight: FontWeight.bold)),
+                    Spacer(),
+                    Container(
+                      height: screenHeight*0.08,
+                      child: Image(image: AssetImage("assets/images/men.png")),
+                    )]),
+                  SizedBox(height: screenWidth*0.15),
                   Row(
                     children: [
-                      Row(
-                        children: [
-                          Column(
-                            children: [
-                              Padding(
-                                padding:  EdgeInsets.only(left: screenWidth*0.05, right: screenWidth*0.30),
-                                child: Text("Paid", style: TextStyle(fontSize: screenWidth*0.03,
-                                    fontWeight: FontWeight.bold)),
-                              ),
-                              SizedBox(height: screenWidth*0.01,),
-                              Text("Javed Ahmad M/46", style: TextStyle(fontSize: screenWidth*0.06,
-                                  fontWeight: FontWeight.bold)),
+                      Flexible(
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: "search",
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(color: Colors.black12)),
+                            focusColor: Colors.black12,
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.black12),
+                              borderRadius: BorderRadius.circular(10))))),
+                      SizedBox(width: screenWidth*0.02,),
+                      Container(
+                        height: screenHeight*0.07,
+                        decoration: BoxDecoration(
+                          color: Colors.grey,
+                            border: Border.all(
+                                color: Colors.grey),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Center(
+                          child: DropdownButton(
+                              iconDisabledColor: Colors.white,
+                              iconEnabledColor: Colors.white,
+                            hint: Text('Meal', style: TextStyle(color: Colors.white)),
+                              items: rules.map((val) => DropdownMenuItem(
+                                value: val,
+                                  child: Text(val))).toList(),
+                              onChanged: (newVal){
+                                setState(() {
+                                  initValRules=newVal.toString();
+                                });
+                              }),
+                        ),
+                      )
 
-                            ],
-                          )
-                        ],
-                      ),
-                      Spacer(),
-                      Row(
-                        children: [
-                          Container(
-                            height: screenHeight*0.08,
-                            child: Image(image: AssetImage("assets/images/men.png")),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: screenWidth*0.15),
-                  Container(
-                    // color: Color(0xffff7e11),
-                    // height: screenHeight*0.06,
-                    width: screenWidth,
-                    child: Padding(
-                      padding:  EdgeInsets.all(screenWidth*0.03),
-                      child: Text("Here doctor will do the current "
-                          "diagnose and advise about new "
-                          "medicine/lab report if needed"
-                          , style: TextStyle(fontSize: screenWidth*0.05,
-                      )),
-                    ),
-                  ),
+                    ]),
 
-                  SizedBox(height: screenWidth*0.15),
+                  SizedBox(height: screenWidth*0.25),
                   
                   Padding(
                     padding:  EdgeInsets.all(screenWidth*0.02),
@@ -181,7 +192,7 @@ class _OrderLabsState extends State<OrderLabs> {
                         primary: allColor.elevatedBtnColor
                     ),
                     onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>StopOldMedicine()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>MedicineList()));
                     },
                     child:
                     Padding(

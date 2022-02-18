@@ -18,54 +18,56 @@ class _GetStartedState extends State<GetStarted> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: allColor.backGroundColor,
-        body: Column(
-          children: [
-            Container(
-              color: Colors.white,
-              height: screenHeight*0.29,
-              width: screenWidth,
-              child: Column(
-                children: [
-                  SizedBox(height: screenHeight*0.06),
-                  Container(
-                    width: screenWidth,
-                    height: screenHeight*0.12,
-                    child: Image.asset("assets/images/k.jpeg"),
-                  ),
-                  SizedBox(height: screenHeight*0.05),
-                  Text("Kambaii Health", style: TextStyle(fontSize: screenWidth*0.07,
-                      color: allColor.blackTextColor)),
-                ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                color: Colors.white,
+                height: screenHeight*0.29,
+                width: screenWidth,
+                child: Column(
+                  children: [
+                    SizedBox(height: screenHeight*0.06),
+                    Container(
+                      width: screenWidth,
+                      height: screenHeight*0.12,
+                      child: Image.asset("assets/images/k.jpeg"),
+                    ),
+                    SizedBox(height: screenHeight*0.05),
+                    Text("Kambaii Health", style: TextStyle(fontSize: screenWidth*0.07,
+                        color: allColor.blackTextColor)),
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding:  EdgeInsets.only(top: screenWidth*0.12, left: screenWidth*0.05, right: screenWidth*0.05),
-              child: Text("Kambaii Health's 90-Days Long Lifestyle Changing Wellness Program is a transformational program "
-                  "that is designed to empower you to live happy, healthy, proactive and productive life with full of "
-                  "confidence. Kambaii Health's primary objective is to provide a better health care through integrated "
-                  "medical managment, medicine managment, real time alert monitoring and target oriented wellness program"
-                  , style: TextStyle(fontSize: screenHeight*0.02, color: allColor.simpleTextColor)),
-            ),
-            SizedBox(height: screenHeight*0.27,),
-
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: allColor.elevatedBtnColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30)
-                )
+              Padding(
+                padding:  EdgeInsets.only(top: screenWidth*0.12, left: screenWidth*0.05, right: screenWidth*0.05),
+                child: Text("Kambaii Health's 90-Days Long Lifestyle Changing Wellness Program is a transformational program "
+                    "that is designed to empower you to live happy, healthy, proactive and productive life with full of "
+                    "confidence. Kambaii Health's primary objective is to provide a better health care through integrated "
+                    "medical managment, medicine managment, real time alert monitoring and target oriented wellness program"
+                    , style: TextStyle(fontSize: screenHeight*0.02, color: allColor.simpleTextColor)),
               ),
-                onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>LogSignPage()));
-                }, 
-                child:
-                Padding(
-                  padding:  EdgeInsets.only(left: screenWidth*0.06, right: screenWidth*0.06,
-                      top: screenWidth*0.03, bottom: screenWidth*0.03),
-                  child: Text("Get Started", style: TextStyle(fontSize: screenWidth*0.05),),
-                )),
+              SizedBox(height: screenHeight*0.27,),
 
-          ],
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: allColor.elevatedBtnColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30)
+                  )
+                ),
+                  onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>LogSignPage()));
+                  }, 
+                  child:
+                  Padding(
+                    padding:  EdgeInsets.only(left: screenWidth*0.06, right: screenWidth*0.06,
+                        top: screenWidth*0.03, bottom: screenWidth*0.03),
+                    child: Text("Get Started", style: TextStyle(fontSize: screenWidth*0.05),),
+                  )),
+
+            ],
+          ),
         ),
       ),
     );
