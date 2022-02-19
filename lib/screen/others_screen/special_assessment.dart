@@ -49,18 +49,19 @@ class _SpecialistAssessmentState extends State<SpecialistAssessment> {
                     )]),
                   SizedBox(height: screenWidth*0.15),
                   Container(
-                    // color: Color(0xffff7e11),
-                    // height: screenHeight*0.06,
-                    width: screenWidth,
-                    child: Padding(
-                      padding:  EdgeInsets.all(screenWidth*0.03),
-                      child: Text("Here doctor will do the current "
-                          "diagnose and advise about new "
-                          "medicine/lab report if needed"
-                          "", style: TextStyle(fontSize: screenWidth*0.05,
-                      )),
-                    ),
-                  ),
+                      width: screenWidth,
+                      child: TextFormField(
+                          keyboardType: TextInputType.multiline,
+                          maxLines: null,
+                          decoration: InputDecoration(
+                              hintText: "Write here",
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(color: Colors.black12)),
+                              focusColor: Colors.black12,
+                              border: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.black12),
+                                  borderRadius: BorderRadius.circular(10))))),
 
                 ],
               ),

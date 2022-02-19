@@ -1,5 +1,6 @@
 import 'package:design/screen/get_started.dart';
 import 'package:design/screen/others_screen/lab_report.dart';
+import 'package:design/screen/others_screen/special_assessment.dart';
 import 'package:flutter/material.dart';
 class Provitional extends StatefulWidget {
   const Provitional({Key? key}) : super(key: key);
@@ -51,7 +52,7 @@ class _ProvitionalState extends State<Provitional> {
                       child: Image(image: AssetImage("assets/images/men.png")),
                     )]),
                   SizedBox(height: screenWidth*0.15),
-                  Text("Current medical diagnose \nwill appear here",
+                  Text("Current medical diagnosis \nwill appear here",
                       style: TextStyle(fontSize: screenWidth*0.05)),
                   SizedBox(height: screenHeight*0.05,),
                   Row(
@@ -59,7 +60,7 @@ class _ProvitionalState extends State<Provitional> {
                         Flexible(
                             child: TextFormField(
                                 decoration: InputDecoration(
-                                    hintText: "Search Diagnosis",
+                                    hintText: " Write Diagnosis",
                                     focusedBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(10),
                                         borderSide: BorderSide(color: Colors.black12)),
@@ -126,7 +127,7 @@ class _ProvitionalState extends State<Provitional> {
                         primary: allColor.elevatedBtnColor
                     ),
                     onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>LabReport()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SpecialistAssessment()));
                     },
                     child:
                     Padding(

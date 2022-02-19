@@ -1,5 +1,6 @@
 import 'package:design/screen/get_started.dart';
 import 'package:design/screen/others_screen/call_the_patient.dart';
+import 'package:design/screen/others_screen/stop_old_medicine_two.dart';
 import 'package:flutter/material.dart';
 
 class StopOldMedicine extends StatefulWidget {
@@ -87,22 +88,22 @@ class _StopOldMedicineState extends State<StopOldMedicine> {
                             TableCell(child:
                             Padding(
                               padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Center(child: Text('01', style: TextStyle(fontSize: screenWidth*0.04),)),
+                              child: Center(child: Text('', style: TextStyle(fontSize: screenWidth*0.04),)),
                             )),
                             TableCell(child:
                             Padding(
                               padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('Calcium', style: TextStyle(fontSize: screenWidth*0.04)),
+                              child: Text('', style: TextStyle(fontSize: screenWidth*0.04)),
                             )),
                             TableCell(child:
                             Padding(
                               padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('T-D-S', style: TextStyle(fontSize: screenWidth*0.04)),
+                              child: Text('', style: TextStyle(fontSize: screenWidth*0.04)),
                             )),
                             TableCell(child:
                             Padding(
                               padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('After', style: TextStyle(fontSize: screenWidth*0.04)),
+                              child: Text('', style: TextStyle(fontSize: screenWidth*0.04)),
                             )),
                           ]
                       ),
@@ -111,22 +112,22 @@ class _StopOldMedicineState extends State<StopOldMedicine> {
                             TableCell(child:
                             Padding(
                               padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Center(child: Text('02', style: TextStyle(fontSize: screenWidth*0.04),)),
+                              child: Center(child: Text('', style: TextStyle(fontSize: screenWidth*0.04),)),
                             )),
                             TableCell(child:
                             Padding(
                               padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('PCM', style: TextStyle(fontSize: screenWidth*0.04)),
+                              child: Text('', style: TextStyle(fontSize: screenWidth*0.04)),
                             )),
                             TableCell(child:
                             Padding(
                               padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('TDS', style: TextStyle(fontSize: screenWidth*0.04)),
+                              child: Text('', style: TextStyle(fontSize: screenWidth*0.04)),
                             )),
                             TableCell(child:
                             Padding(
                               padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('After', style: TextStyle(fontSize: screenWidth*0.04)),
+                              child: Text('', style: TextStyle(fontSize: screenWidth*0.04)),
                             )),
                           ]
                       ),
@@ -135,22 +136,22 @@ class _StopOldMedicineState extends State<StopOldMedicine> {
                             TableCell(child:
                             Padding(
                               padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Center(child: Text('03', style: TextStyle(fontSize: screenWidth*0.04),)),
+                              child: Center(child: Text('', style: TextStyle(fontSize: screenWidth*0.04),)),
                             )),
                             TableCell(child:
                             Padding(
                               padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('Iron', style: TextStyle(fontSize: screenWidth*0.04)),
+                              child: Text('', style: TextStyle(fontSize: screenWidth*0.04)),
                             )),
                             TableCell(child:
                             Padding(
                               padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('BD', style: TextStyle(fontSize: screenWidth*0.04)),
+                              child: Text('', style: TextStyle(fontSize: screenWidth*0.04)),
                             )),
                             TableCell(child:
                             Padding(
                               padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('After', style: TextStyle(fontSize: screenWidth*0.04)),
+                              child: Text('', style: TextStyle(fontSize: screenWidth*0.04)),
                             )),
                           ]
                       ),
@@ -159,28 +160,22 @@ class _StopOldMedicineState extends State<StopOldMedicine> {
                             TableCell(child:
                             Padding(
                               padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Center(child: Text('04', style: TextStyle(fontSize: screenWidth*0.04),)),
+                              child: Center(child: Text('', style: TextStyle(fontSize: screenWidth*0.04),)),
                             )),
                             TableCell(child:
                             Padding(
                               padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('Pantrop', style: TextStyle(fontSize: screenWidth*0.04)),
+                              child: Text('', style: TextStyle(fontSize: screenWidth*0.04)),
                             )),
                             TableCell(child:
                             Padding(
                               padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('OD', style: TextStyle(fontSize: screenWidth*0.04)),
+                              child: Text('', style: TextStyle(fontSize: screenWidth*0.04)),
                             )),
                             TableCell(child:
                             Padding(
                               padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('Before', style: TextStyle(fontSize: screenWidth*0.04)),
-                            )),
-                          ]
-                      ),
-
-                    ],
-                  ),
+                              child: Text('', style: TextStyle(fontSize: screenWidth*0.04))))])]),
 
                   SizedBox(height: screenWidth*0.15),
 
@@ -209,31 +204,21 @@ class _StopOldMedicineState extends State<StopOldMedicine> {
                         ElevatedButton(
                             style: ElevatedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30)
-                                ),
-                                primary: Color(0xffb3d9ef)
-                            ),
-                            onPressed: (){
-                              // Navigator.push(context, MaterialPageRoute(builder: (context)=>()));
-                            },
+                                    borderRadius: BorderRadius.circular(30)),
+                                primary: Color(0xffb3d9ef)),
+                            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>StopOldMedicineTwo()));},
                             child:
                             Padding(
                               padding:  EdgeInsets.only(left: screenWidth*0.02, top: screenWidth*0.02,
                                   bottom: screenWidth*0.02, right: screenWidth*0.02),
-                              child: Text('Yes', style: TextStyle(fontSize: screenWidth*0.04,color: Colors.black)),
-                            )
-                        ),
+                              child: Text('Yes', style: TextStyle(fontSize: screenWidth*0.04,color: Colors.black)))),
                         Spacer(),
                         ElevatedButton(
                             style: ElevatedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30)
-                                ),
-                                primary: Color(0xfffae5dd)
-                            ),
-                            onPressed: (){
-                              // Navigator.push(context, MaterialPageRoute(builder: (context)=>()));
-                            },
+                                    borderRadius: BorderRadius.circular(30)),
+                                primary: Color(0xfffae5dd)),
+                            onPressed: (){},
                             child:
                             Padding(
                               padding:  EdgeInsets.only(left: screenWidth*0.02, top: screenWidth*0.02,

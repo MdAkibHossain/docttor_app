@@ -1,5 +1,6 @@
 import 'package:design/helper/custom_text_field.dart';
 import 'package:design/screen/get_started.dart';
+import 'package:design/screen/others_screen/provisional.dart';
 import 'package:design/screen/others_screen/special_assessment.dart';
 import 'package:flutter/material.dart';
 
@@ -22,17 +23,15 @@ class _LabReportState extends State<LabReport> {
             padding:  EdgeInsets.all(screenWidth*0.05),
             child: SingleChildScrollView(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: screenHeight*0.02,),
                   Row(
                     children: [
                       ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              primary: allColor.backGroundColor
-                          ),
-                          onPressed: (){
-
-                          },
+                              primary: allColor.backGroundColor),
+                          onPressed: (){},
                           child: Text("View Lab Report")),
                       Spacer(),
                       Container(
@@ -46,28 +45,14 @@ class _LabReportState extends State<LabReport> {
                         fontWeight: FontWeight.bold)),
                     Spacer(),
                     Container(
-                      height: screenHeight*0.08,
-                      child: Image(image: AssetImage("assets/images/men.png")),
-                    )]),
+                        height: screenHeight*0.08,
+                        child: Image(image: AssetImage("assets/images/men.png")))]),
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          primary: allColor.backGroundColor),
+                      onPressed: (){},
+                      child: Text("EMR")),
                   SizedBox(height: screenWidth*0.15),
-                  Container(
-                    width: screenWidth,
-                    child:
-                      TextFormField(
-                        controller: _viewLabReportController,
-                        keyboardType: TextInputType.multiline,
-                        maxLines: null,
-                        decoration: InputDecoration(
-                            hintText: "Write here",
-                            focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(color: Colors.black12)),
-                            focusColor: Colors.black12,
-                            border: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black12),
-                                borderRadius: BorderRadius.circular(10))),
-                      )
-                  ),
 
                 ],
               ),
@@ -103,7 +88,7 @@ class _LabReportState extends State<LabReport> {
                         primary: allColor.elevatedBtnColor
                     ),
                     onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SpecialistAssessment()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Provitional()));
                     },
                     child:
                     Padding(

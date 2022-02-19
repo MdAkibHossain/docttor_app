@@ -9,13 +9,7 @@ class AddNewMedicine extends StatefulWidget {
   @override
   _AddNewMedicineState createState() => _AddNewMedicineState();
 }
-List<String> rules=[
-  "Before meal",
-  "After meal",
-  "2 times daily\n"
-      "after meal",
-  "3 times daily ",
-  "Continue"];
+List<String> rules=[];
 String ? initValRules;
 class _AddNewMedicineState extends State<AddNewMedicine> {
   @override
@@ -36,18 +30,13 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
                     children: [
                       ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              primary: allColor.backGroundColor
-                          ),
-                          onPressed: (){
-
-                          },
+                              primary: allColor.backGroundColor),
+                          onPressed: (){},
                           child: Text("Add New Medicine")),
                       Spacer(),
                       Container(
                           height: screenHeight*0.07,
-                          child:Image.asset("assets/images/k.jpeg")),
-                    ],
-                  ),
+                          child:Image.asset("assets/images/k.jpeg"))]),
                   SizedBox(height: screenWidth*0.05,),
                   Row(children: [
                     Text("Javed Ahmad M/46", style: TextStyle(fontSize: screenWidth*0.06,
@@ -55,37 +44,40 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
                     Spacer(),
                     Container(
                       height: screenHeight*0.08,
-                      child: Image(image: AssetImage("assets/images/men.png")),
-                    )]),
-                  SizedBox(height: screenWidth*0.20),
-                  Text("Current list of medicine", style: TextStyle(fontSize: screenWidth*0.05)),
+                      child: Image(image: AssetImage("assets/images/men.png")))]),
+                  SizedBox(height: screenWidth*0.10),
+                  Text("Add new medicine", style: TextStyle(fontSize: screenWidth*0.05)),
                   SizedBox(height: screenWidth*0.05),
-                  Row(
-                      children: [
-                        Flexible(
-                            child: TextFormField(
-                                decoration: InputDecoration(
-                                    hintText: "Search Medicine",
-                                    focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                        borderSide: BorderSide(color: Colors.black12)),
-                                    focusColor: Colors.black12,
-                                    border: OutlineInputBorder(
-                                        borderSide: BorderSide(color: Colors.black12),
-                                        borderRadius: BorderRadius.circular(10))))),
-                        SizedBox(width: screenWidth*0.02,),
-                        Container(
-                          height: screenHeight*0.07,
-                          decoration: BoxDecoration(
-                              color: Colors.grey,
-                              border: Border.all(
-                                  color: Colors.grey),
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Center(
+                  Container(
+                    height: screenHeight*0.05,
+                    child:  Row(children: [
+                      Flexible(
+                          child: TextFormField(
+                              decoration: InputDecoration(
+                                  hintText: "Medicine Name",
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide(color: Colors.black12)),
+                                  focusColor: Colors.black12,
+                                  border: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Colors.black12),
+                                      borderRadius: BorderRadius.circular(10))))),
+                      SizedBox(width: screenWidth*0.01),
+                      Container(
+                        height: screenHeight*0.07,
+                        decoration: BoxDecoration(
+
+                            border: Border.all(
+                                color: Colors.grey),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Center(
+                          child: Padding(
+                            padding:  EdgeInsets.all(8.0),
                             child: DropdownButton(
-                                iconDisabledColor: Colors.white,
-                                iconEnabledColor: Colors.white,
-                                hint: Text('Medicine', style: TextStyle(color: Colors.white)),
+                                iconSize: 30,
+                                iconDisabledColor: Colors.black,
+                                iconEnabledColor: Colors.black,
+                                hint: Text('', style: TextStyle(color: Colors.white)),
                                 items: rules.map((val) => DropdownMenuItem(
                                     value: val,
                                     child: Text(val))).toList(),
@@ -95,17 +87,139 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
                                   });
                                 }),
                           ),
-                        )
+                        ),
+                      )])),
+                  SizedBox(height: screenWidth*0.05),
+                  Container(
+                      height: screenHeight*0.05,
+                      child:  Row(children: [
+                        Flexible(
+                            child: TextFormField(
+                                decoration: InputDecoration(
+                                    hintText: "Dose",
+                                    focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                        borderSide: BorderSide(color: Colors.black12)),
+                                    focusColor: Colors.black12,
+                                    border: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Colors.black12),
+                                        borderRadius: BorderRadius.circular(10))))),
+                        SizedBox(width: screenWidth*0.01),
+                        Container(
+                          height: screenHeight*0.07,
+                          decoration: BoxDecoration(
 
-                      ]),
-                  SizedBox(height: screenWidth*0.55),
+                              border: Border.all(
+                                  color: Colors.grey),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Center(
+                            child: Padding(
+                              padding:  EdgeInsets.all(8.0),
+                              child: DropdownButton(
+                                  iconSize: 30,
+                                  iconDisabledColor: Colors.black,
+                                  iconEnabledColor: Colors.black,
+                                  hint: Text('', style: TextStyle(color: Colors.white)),
+                                  items: rules.map((val) => DropdownMenuItem(
+                                      value: val,
+                                      child: Text(val))).toList(),
+                                  onChanged: (newVal){
+                                    setState(() {
+                                      initValRules=newVal.toString();
+                                    });
+                                  }),
+                            ),
+                          ),
+                        )])),
+                  SizedBox(height: screenWidth*0.05),
+                  Container(
+                      height: screenHeight*0.05,
+                      child:  Row(children: [
+                        Flexible(
+                            child: TextFormField(
+                                decoration: InputDecoration(
+                                    hintText: "Before/After Meal",
+                                    focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                        borderSide: BorderSide(color: Colors.black12)),
+                                    focusColor: Colors.black12,
+                                    border: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Colors.black12),
+                                        borderRadius: BorderRadius.circular(10))))),
+                        SizedBox(width: screenWidth*0.01),
+                        Container(
+                          height: screenHeight*0.07,
+                          decoration: BoxDecoration(
+
+                              border: Border.all(
+                                  color: Colors.grey),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Center(
+                            child: Padding(
+                              padding:  EdgeInsets.all(8.0),
+                              child: DropdownButton(
+                                  iconSize: 30,
+                                  iconDisabledColor: Colors.black,
+                                  iconEnabledColor: Colors.black,
+                                  hint: Text('', style: TextStyle(color: Colors.white)),
+                                  items: rules.map((val) => DropdownMenuItem(
+                                      value: val,
+                                      child: Text(val))).toList(),
+                                  onChanged: (newVal){
+                                    setState(() {
+                                      initValRules=newVal.toString();
+                                    });
+                                  }),
+                            ),
+                          ),
+                        )])),
+                  SizedBox(height: screenWidth*0.05),
+                  Container(
+                      height: screenHeight*0.05,
+                      child:  Row(children: [
+                        Flexible(
+                            child: TextFormField(
+                                decoration: InputDecoration(
+                                    hintText: "Duration",
+                                    focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                        borderSide: BorderSide(color: Colors.black12)),
+                                    focusColor: Colors.black12,
+                                    border: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Colors.black12),
+                                        borderRadius: BorderRadius.circular(10))))),
+                        SizedBox(width: screenWidth*0.01),
+                        Container(
+                          height: screenHeight*0.07,
+                          decoration: BoxDecoration(
+
+                              border: Border.all(
+                                  color: Colors.grey),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Center(
+                            child: Padding(
+                              padding:  EdgeInsets.all(8.0),
+                              child: DropdownButton(
+                                  iconSize: 30,
+                                  iconDisabledColor: Colors.black,
+                                  iconEnabledColor: Colors.black,
+                                  hint: Text('', style: TextStyle(color: Colors.white)),
+                                  items: rules.map((val) => DropdownMenuItem(
+                                      value: val,
+                                      child: Text(val))).toList(),
+                                  onChanged: (newVal){
+                                    setState(() {
+                                      initValRules=newVal.toString();
+                                    });
+                                  }),
+                            ),
+                          ),
+                        )])),
+                  SizedBox(height: screenWidth*0.25),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          primary: allColor.backGroundColor
-                      ),
-                      onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Prescription()));
-                      },
+                          primary: allColor.backGroundColor),
+                      onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Prescription()));},
                       child: Text("Show prescription")),
                 ],
               ),

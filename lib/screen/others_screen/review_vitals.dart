@@ -27,11 +27,8 @@ class _ReviewVitalsState extends State<ReviewVitals> {
                     children: [
                       ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              primary: allColor.backGroundColor
-                          ),
-                          onPressed: (){
-
-                          },
+                              primary: allColor.backGroundColor),
+                          onPressed: (){},
                           child: Text("Review Vitals")),
                       Spacer(),
                       Container(
@@ -55,7 +52,7 @@ class _ReviewVitalsState extends State<ReviewVitals> {
                     width: screenWidth,
                     child: Padding(
                       padding:  EdgeInsets.all(screenWidth*0.03),
-                      child: Text("Vital Report-21 Dec 2022", style: TextStyle(fontSize: screenWidth*0.05,
+                      child: Text("Vital Report", style: TextStyle(fontSize: screenWidth*0.05,
                           color: Colors.white, fontWeight: FontWeight.bold)),
                     ),),
 
@@ -71,17 +68,26 @@ class _ReviewVitalsState extends State<ReviewVitals> {
                       padding:  EdgeInsets.all(screenWidth*0.03),
                       child: Text("BP-120/82\n"
                           "RBC- 4500\n"
-                          "LFT-256\n"
-
-
-                          , style: TextStyle(fontSize: screenWidth*0.05,)),
-                    ),),
+                          "LFT-256\n", style: TextStyle(fontSize: screenWidth*0.05,)))),
 
                   SizedBox(height: screenWidth*0.45),
+                  InkWell(
+                    onTap: (){},
+                    child: Container(
+                      color: Color(0xffff7e11),
+                      height: screenHeight*0.06,
+                      width: screenWidth,
+                      child: Padding(
+                        padding:  EdgeInsets.all(screenWidth*0.03),
+                        child: Text("Old Vital History", style: TextStyle(fontSize: screenWidth*0.05,
+                            color: Colors.white, fontWeight: FontWeight.bold)),
+                      ),),
+                  ),
                 ],
               ),
             ),
           ),
+
           bottomNavigationBar: Padding(
             padding:  EdgeInsets.all(screenWidth*0.10),
             child: Row(
@@ -91,12 +97,8 @@ class _ReviewVitalsState extends State<ReviewVitals> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30)
                         ),
-                        primary: Colors.blue
-                    ),
-                    onPressed: (){
-                      Navigator.pop(context);
-                    },
-                    child:
+                        primary: Colors.blue),
+                    onPressed: (){Navigator.pop(context);}, child:
                     Padding(
                       padding:  EdgeInsets.only(left: screenWidth*0.05, top: screenWidth*0.02,
                           bottom: screenWidth*0.02, right: screenWidth*0.05),

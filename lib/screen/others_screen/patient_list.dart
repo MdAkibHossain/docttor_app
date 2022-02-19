@@ -73,7 +73,7 @@ class _PatientListState extends State<PatientList> {
                                 child: Column(
                                     children: [
                                       Padding(padding:  EdgeInsets.only(left: screenWidth*0.05),
-                                          child: Text("Schedule 09 Oct 2021", style: TextStyle(fontSize: screenWidth*0.06, fontWeight: FontWeight.bold))),
+                                          child: Text("Schedule 11 Oct 2021", style: TextStyle(fontSize: screenWidth*0.06, fontWeight: FontWeight.bold))),
                                       SizedBox(height: screenHeight*0.02,),
                                       Center(child: Text("5 Patient(S)", style: TextStyle(
                                           fontSize: screenWidth*0.05, fontWeight: FontWeight.bold, color: Colors.black54)))])),
@@ -82,7 +82,7 @@ class _PatientListState extends State<PatientList> {
                                 child: Column(
                                     children: [
                                       Padding(padding:  EdgeInsets.only(left: screenWidth*0.05),
-                                          child: Text("Schedule 08 Oct 2021", style: TextStyle(fontSize: screenWidth*0.06, fontWeight: FontWeight.bold))),
+                                          child: Text("Schedule 12 Oct 2021", style: TextStyle(fontSize: screenWidth*0.06, fontWeight: FontWeight.bold))),
                                       SizedBox(height: screenHeight*0.02,),
                                       Center(child: Text("15 Patient(S)", style: TextStyle(
                                           fontSize: screenWidth*0.05, fontWeight: FontWeight.bold, color: Colors.black54)))])),

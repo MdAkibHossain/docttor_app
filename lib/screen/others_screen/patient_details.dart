@@ -1,4 +1,5 @@
 import 'package:design/screen/get_started.dart';
+import 'package:design/screen/others_screen/prescription_formate.dart';
 import 'package:flutter/material.dart';
 class PatientDetails extends StatefulWidget {
   const PatientDetails({Key? key}) : super(key: key);
@@ -43,8 +44,7 @@ class _PatientDetailsState extends State<PatientDetails> {
                         padding:  EdgeInsets.only(left: screenWidth*0.05),
                         child:
                         Text("Reason :", style: TextStyle(
-                            fontSize: screenWidth*0.06, fontWeight: FontWeight.bold)),
-                      ),
+                            fontSize: screenWidth*0.06, fontWeight: FontWeight.bold))),
                       Spacer(),
                       Padding(
                         padding:  EdgeInsets.only(left: screenWidth*0.05),
@@ -177,9 +177,20 @@ class _PatientDetailsState extends State<PatientDetails> {
                   child: Padding(
                       padding:  EdgeInsets.only(left: screenWidth*0.05, top: screenWidth*0.02,
                           bottom: screenWidth*0.02, right: screenWidth*0.05),
-                      child: Text('Back', style: TextStyle(fontSize: screenWidth*0.04,)))),
-            ),
+                      child: Text('Back', style: TextStyle(fontSize: screenWidth*0.04,))))),
             Spacer(),
+            Padding(
+                padding:  EdgeInsets.all(25),
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30)),
+                        primary: allColor.elevatedBtnColor),
+                    onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Prescription()));},
+                    child: Padding(
+                        padding:  EdgeInsets.only(left: screenWidth*0.02, top: screenWidth*0.02,
+                            bottom: screenWidth*0.02, right: screenWidth*0.02),
+                        child: Text('My Prescription', style: TextStyle(fontSize: screenWidth*0.04,))))),
           ],)
         )
     );

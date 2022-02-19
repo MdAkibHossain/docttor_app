@@ -1,4 +1,5 @@
 import 'package:design/screen/get_started.dart';
+import 'package:design/screen/home_page.dart';
 import 'package:flutter/material.dart';
 class Prescription extends StatefulWidget {
   const Prescription({Key? key}) : super(key: key);
@@ -24,14 +25,8 @@ class _PrescriptionState extends State<Prescription> {
                   SizedBox(height: screenHeight*0.02,),
                   Row(
                     children: [
-                      ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              primary: allColor.backGroundColor
-                          ),
-                          onPressed: (){
-
-                          },
-                          child: Text("Prescription")),
+                      Text("KAMBAII", style: TextStyle(fontSize: screenWidth*0.07, fontWeight: FontWeight.bold,
+                          color: Colors.blueGrey)),
                       Spacer(),
                       Container(
                           height: screenHeight*0.07,
@@ -39,146 +34,130 @@ class _PrescriptionState extends State<Prescription> {
                     ],
                   ),
                   SizedBox(height: screenWidth*0.05,),
-                  Row(children: [
-                    Text("Javed Ahmad M/46", style: TextStyle(fontSize: screenWidth*0.06,
-                        fontWeight: FontWeight.bold)),
-                    Spacer(),
-                    Container(
-                      height: screenHeight*0.08,
-                      child: Image(image: AssetImage("assets/images/men.png")),
-                    )]),
-                  SizedBox(height: screenWidth*0.25),
-                  Table(
-                    columnWidths:  {
-                      0: FlexColumnWidth(2),
-                      1: FlexColumnWidth(2),
-                      2: FlexColumnWidth(2),
-                      3: FlexColumnWidth(2),
-                    },
-                    border: TableBorder.all(color: Colors.grey),
-                    children: [
-                      TableRow(
-                          children: [
-                            TableCell(child:
-                            Padding(
-                              padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('Medicine Name.', style: TextStyle(fontSize: screenWidth*0.03, fontWeight: FontWeight.bold),),
-                            )),
-                            TableCell(child:
-                            Padding(
-                              padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('Dose', style: TextStyle(fontSize: screenWidth*0.03, fontWeight: FontWeight.bold)),
-                            )),
-                            TableCell(child:
-                            Padding(
-                              padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('Before/After meal', style: TextStyle(fontSize: screenWidth*0.03, fontWeight: FontWeight.bold),),
-                            )),
-                            TableCell(child:
-                            Padding(
-                              padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('Duration', style: TextStyle(fontSize: screenWidth*0.03, fontWeight: FontWeight.bold)),
-                            )),
-                          ]
-                      ),
-                      TableRow(
-                          children: [
-                            TableCell(child:
-                            Padding(
-                              padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Center(child: Text('', style: TextStyle(fontSize: screenWidth*0.03),)),
-                            )),
-                            TableCell(child:
-                            Padding(
-                              padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('', style: TextStyle(fontSize: screenWidth*0.03)),
-                            )),
-                            TableCell(child:
-                            Padding(
-                              padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('', style: TextStyle(fontSize: screenWidth*0.03)),
-                            )),
-                            TableCell(child:
-                            Padding(
-                              padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('', style: TextStyle(fontSize: screenWidth*0.03)),
-                            )),
-                          ]
-                      ),
-                      TableRow(
-                          children: [
-                            TableCell(child:
-                            Padding(
-                              padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Center(child: Text('', style: TextStyle(fontSize: screenWidth*0.03),)),
-                            )),
-                            TableCell(child:
-                            Padding(
-                              padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('', style: TextStyle(fontSize: screenWidth*0.03)),
-                            )),
-                            TableCell(child:
-                            Padding(
-                              padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('', style: TextStyle(fontSize: screenWidth*0.03)),
-                            )),
-                            TableCell(child:
-                            Padding(
-                              padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('', style: TextStyle(fontSize: screenWidth*0.03)),
-                            )),
-                          ]
-                      ),
-                      TableRow(
-                          children: [
-                            TableCell(child:
-                            Padding(
-                              padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Center(child: Text('', style: TextStyle(fontSize: screenWidth*0.03),)),
-                            )),
-                            TableCell(child:
-                            Padding(
-                              padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('', style: TextStyle(fontSize: screenWidth*0.03)),
-                            )),
-                            TableCell(child:
-                            Padding(
-                              padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('', style: TextStyle(fontSize: screenWidth*0.03)),
-                            )),
-                            TableCell(child:
-                            Padding(
-                              padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('', style: TextStyle(fontSize: screenWidth*0.03)),
-                            )),
-                          ]
-                      ),
-                      TableRow(
-                          children: [
-                            TableCell(child:
-                            Padding(
-                              padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Center(child: Text('', style: TextStyle(fontSize: screenWidth*0.03),)),
-                            )),
-                            TableCell(child:
-                            Padding(
-                              padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('', style: TextStyle(fontSize: screenWidth*0.03)),
-                            )),
-                            TableCell(child:
-                            Padding(
-                              padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('', style: TextStyle(fontSize: screenWidth*0.03)),
-                            )),
-                            TableCell(child:
-                            Padding(
-                              padding:  EdgeInsets.all(screenWidth*0.02),
-                              child: Text('', style: TextStyle(fontSize: screenWidth*0.03)),
-                            )),
-                          ]
-                      ),
+                  Text("Dr.Mahmood", style: TextStyle(fontSize: screenWidth*0.06,
+                      fontWeight: FontWeight.bold)),
+                  Text("from Ahsania Mission Cancer Hospital!", style: TextStyle(fontSize: screenWidth*0.04)),
+                  SizedBox(height: screenWidth*0.05,),
+                  Divider(color: Colors.grey,thickness: 2,),
+                  SizedBox(height: screenWidth*0.05),
+                  Container(
+                    height: screenHeight*0.05,
+                      color: Color(0xffdcebf1),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Row(children: [
+                            Text("Patient Name : ", style: TextStyle(fontSize: screenWidth*0.04, fontWeight: FontWeight.bold)),
+                            Text("Deepak", style: TextStyle(fontSize: screenWidth*0.04,fontWeight: FontWeight.bold))]))),
+                  Container(
+                      height: screenHeight*0.05,
+                      color: allColor.homebgColor,
+                      child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Row(children: [
+                            Text("Reason : ", style: TextStyle(fontSize: screenWidth*0.04)),
+                            Text("Chest pain", style: TextStyle(fontSize: screenWidth*0.04))]))),
+                  Container(
+                      height: screenHeight*0.05,
+                      color: Color(0xffdcebf1),
+                      child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Row(children: [
+                            Text("Gender : ", style: TextStyle(fontSize: screenWidth*0.04)),
+                            Text("Male", style: TextStyle(fontSize: screenWidth*0.04))]))),
+                  Container(
+                      height: screenHeight*0.05,
+                      color: allColor.homebgColor,
+                      child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Row(children: [
+                            Text("Age : ", style: TextStyle(fontSize: screenWidth*0.04)),
+                            Text("21 Years", style: TextStyle(fontSize: screenWidth*0.04))]))),
 
-                    ],
+                  SizedBox(height: screenWidth*0.10),
+                  Container(
+                      height: screenHeight*0.05,
+                      color: Color(0xfffae5dd),
+                      child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Row(children: [
+                            Text("Medicine Name", style: TextStyle(fontSize: screenWidth*0.04)),
+                            Spacer(),
+                            Text("Strength", style: TextStyle(fontSize: screenWidth*0.04)),
+                            Spacer(),
+                            Text("Time", style: TextStyle(fontSize: screenWidth*0.04)),
+                            Spacer(),
+                            Text("Meal", style: TextStyle(fontSize: screenWidth*0.04)),
+                            Spacer(),
+                            Text("Days", style: TextStyle(fontSize: screenWidth*0.04))]))),
+                  Container(
+                      height: screenHeight*0.15,
+                    color: Color(0xffdcebf1),),
+                  SizedBox(height: screenWidth*0.05,),
+                  Divider(),
+                  SizedBox(height: screenWidth*0.05),
+                  Container(
+                      height: screenHeight*0.15,
+                      width: screenWidth,
+                      color: allColor.homebgColor,
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(" Patient Complaint", style: TextStyle(fontSize: screenWidth*0.04)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: screenWidth*0.05,),
+                  Divider(),
+                  SizedBox(height: screenWidth*0.05),
+                  Container(
+                    height: screenHeight*0.15,
+                    width: screenWidth,
+                    color: Color(0xffdcebf1),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(" Order Lab", style: TextStyle(fontSize: screenWidth*0.04)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Divider(),
+                  SizedBox(height: screenWidth*0.05),
+                  Container(
+                    height: screenHeight*0.15,
+                    width: screenWidth,
+                    color: allColor.homebgColor,
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Continued old Drug", style: TextStyle(fontSize: screenWidth*0.04)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: screenWidth*0.05,),
+                  Divider(),
+                  SizedBox(height: screenWidth*0.05),
+                  Container(
+                    height: screenHeight*0.15,
+                    width: screenWidth,
+                    color: Color(0xffdcebf1),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("New Drug ", style: TextStyle(fontSize: screenWidth*0.04)),
+                        ],
+                      ),
+                    ),
                   ),
 
                   SizedBox(height: screenWidth*0.15),
@@ -187,42 +166,32 @@ class _PrescriptionState extends State<Prescription> {
             ),
           ),
           bottomNavigationBar: Padding(
-            padding:  EdgeInsets.all(screenWidth*0.10),
+            padding:  EdgeInsets.only(left: screenWidth*0.10, right: screenWidth*0.10,
+                top: screenWidth*0.02, bottom: screenWidth*0.05),
             child: Row(
               children: [
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30)
-                        ),
-                        primary: Colors.blue
-                    ),
-                    onPressed: (){
-                      Navigator.pop(context);
-                    },
+                            borderRadius: BorderRadius.circular(30)),
+                        primary: Colors.blue),
+                    onPressed: (){Navigator.pop(context);},
                     child:
                     Padding(
-                      padding:  EdgeInsets.only(left: screenWidth*0.05, top: screenWidth*0.02,
-                          bottom: screenWidth*0.02, right: screenWidth*0.05),
-                      child: Text('Back', style: TextStyle(fontSize: screenWidth*0.04,)),
-                    )
-                ),
+                      padding:  EdgeInsets.only(left: screenWidth*0.05,bottom: screenWidth*0.02, right: screenWidth*0.05),
+                      child: Text('Back', style: TextStyle(fontSize: screenWidth*0.04)))),
                 Spacer(),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30)
-                        ),
-                        primary: allColor.elevatedBtnColor
-                    ),
-                    onPressed: (){
-                      // Navigator.push(context, MaterialPageRoute(builder: (context)=>StopOldMedicine()));
-                    },
+                            borderRadius: BorderRadius.circular(30)),
+                        primary: allColor.elevatedBtnColor),
+                    onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));},
                     child:
                     Padding(
                       padding:  EdgeInsets.only(left: screenWidth*0.05, top: screenWidth*0.02,
                           bottom: screenWidth*0.02, right: screenWidth*0.05),
-                      child: Text('Download', style: TextStyle(fontSize: screenWidth*0.04,)),
+                      child: Text('Submit Button', style: TextStyle(fontSize: screenWidth*0.04,)),
                     )
                 ),
               ],

@@ -1,4 +1,5 @@
 import 'package:design/screen/get_started.dart';
+import 'package:design/screen/others_screen/lab_report.dart';
 import 'package:design/screen/others_screen/provisional.dart';
 import 'package:flutter/material.dart';
 
@@ -50,7 +51,7 @@ class _MedicalState extends State<Medical> {
                     width: screenWidth,
                     child: Padding(
                       padding:  EdgeInsets.all(screenWidth*0.03),
-                      child: Text("Medical History 2022", style: TextStyle(fontSize: screenWidth*0.05,
+                      child: Text("Medical History", style: TextStyle(fontSize: screenWidth*0.05,
                           color: Colors.white, fontWeight: FontWeight.bold)))),
                   SizedBox(height: screenWidth*0.05),
                   Container(
@@ -102,8 +103,7 @@ class _MedicalState extends State<Medical> {
                         primary: allColor.elevatedBtnColor
                     ),
                     onPressed: (){
-
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Provitional()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>LabReport()));
                     },
                     child:
                     Padding(

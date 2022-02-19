@@ -63,10 +63,10 @@ class _HomePageState extends State<HomePage> {
                                 child: Image.asset("assets/images/today.png")),
                               Container(
                                   width: screenWidth,
-                                  child: Image.asset("assets/images/previousday.png")),
+                                  child: Image.asset("assets/images/upcoming.png")),
                               Container(
                                   width: screenWidth,
-                                  child: Image.asset("assets/images/lastday.png")),
+                                  child: Image.asset("assets/images/pre.png")),
                             ],
                           ),
                         ),
