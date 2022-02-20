@@ -75,6 +75,96 @@ class _PrescriptionState extends State<Prescription> {
 
                   SizedBox(height: screenWidth*0.10),
                   Container(
+                    height: screenHeight*0.15,
+                    width: screenWidth,
+                    color: allColor.homebgColor,
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(" Patient Complaint", style: TextStyle(fontSize: screenWidth*0.04)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: screenWidth*0.05),
+                  Container(
+                    height: screenHeight*0.15,
+                    width: screenWidth,
+                    color: Color(0xffdcebf1),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Specialist Assessment ", style: TextStyle(fontSize: screenWidth*0.04)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: screenWidth*0.10),
+                  Container(
+                    height: screenHeight*0.15,
+                    width: screenWidth,
+                    color: allColor.homebgColor,
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Provisional Diagnosis", style: TextStyle(fontSize: screenWidth*0.04)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: screenWidth*0.05),
+                  Container(
+                    height: screenHeight*0.15,
+                    width: screenWidth,
+                    color: Color(0xffdcebf1),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Order Lab", style: TextStyle(fontSize: screenWidth*0.04)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: screenWidth*0.10),
+                  Container(
+                    height: screenHeight*0.15,
+                    width: screenWidth,
+                    color: allColor.homebgColor,
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(" Old Continued Medicine", style: TextStyle(fontSize: screenWidth*0.04)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: screenWidth*0.05),
+                  Container(
+                    height: screenHeight*0.15,
+                    width: screenWidth,
+                    color: Color(0xffdcebf1),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("New Medicine", style: TextStyle(fontSize: screenWidth*0.04)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: screenWidth*0.10),
+                  Container(
                       height: screenHeight*0.05,
                       color: Color(0xfffae5dd),
                       child: Padding(
@@ -89,76 +179,22 @@ class _PrescriptionState extends State<Prescription> {
                             Text("Meal", style: TextStyle(fontSize: screenWidth*0.04)),
                             Spacer(),
                             Text("Days", style: TextStyle(fontSize: screenWidth*0.04))]))),
-                  Container(
-                      height: screenHeight*0.15,
-                    color: Color(0xffdcebf1),),
-                  SizedBox(height: screenWidth*0.05,),
-                  Divider(),
                   SizedBox(height: screenWidth*0.05),
                   Container(
-                      height: screenHeight*0.15,
-                      width: screenWidth,
-                      color: allColor.homebgColor,
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(" Patient Complaint", style: TextStyle(fontSize: screenWidth*0.04)),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: screenWidth*0.05,),
-                  Divider(),
-                  SizedBox(height: screenWidth*0.05),
-                  Container(
-                    height: screenHeight*0.15,
-                    width: screenWidth,
-                    color: Color(0xffdcebf1),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(" Order Lab", style: TextStyle(fontSize: screenWidth*0.04)),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Divider(),
-                  SizedBox(height: screenWidth*0.05),
-                  Container(
-                    height: screenHeight*0.15,
                     width: screenWidth,
                     color: allColor.homebgColor,
                     child: Padding(
                       padding: const EdgeInsets.all(10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Continued old Drug", style: TextStyle(fontSize: screenWidth*0.04)),
-                        ],
-                      ),
+                      child: TextFormField(
+                        keyboardType: TextInputType.multiline,
+                        maxLines: null,
+                        decoration: InputDecoration(
+                          hintText: "Advice"
+                        ),
+                      )
                     ),
                   ),
-                  SizedBox(height: screenWidth*0.05,),
-                  Divider(),
-                  SizedBox(height: screenWidth*0.05),
-                  Container(
-                    height: screenHeight*0.15,
-                    width: screenWidth,
-                    color: Color(0xffdcebf1),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("New Drug ", style: TextStyle(fontSize: screenWidth*0.04)),
-                        ],
-                      ),
-                    ),
-                  ),
+
 
                   SizedBox(height: screenWidth*0.15),
                 ],
