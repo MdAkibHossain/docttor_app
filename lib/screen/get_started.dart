@@ -1,6 +1,7 @@
-import 'package:design/all_color/color.dart';
 import 'package:design/screen/log_sin_page.dart';
 import 'package:flutter/material.dart';
+
+import '../constants/color.dart';
 
 class GetStarted extends StatefulWidget {
   const GetStarted({Key? key}) : super(key: key);
@@ -8,13 +9,14 @@ class GetStarted extends StatefulWidget {
   @override
   _GetStartedState createState() => _GetStartedState();
 }
-AllColor allColor=AllColor();
+
+AllColor allColor = AllColor();
 
 class _GetStartedState extends State<GetStarted> {
   @override
   Widget build(BuildContext context) {
-    final double screenHeight= MediaQuery.of(context).size.height;
-    final double screenWidth= MediaQuery.of(context).size.width;
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double screenWidth = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
         backgroundColor: allColor.backGroundColor,
@@ -23,49 +25,61 @@ class _GetStartedState extends State<GetStarted> {
             children: [
               Container(
                 color: Colors.white,
-                height: screenHeight*0.29,
+                height: screenHeight * 0.29,
                 width: screenWidth,
                 child: Column(
                   children: [
-                    SizedBox(height: screenHeight*0.06),
+                    SizedBox(height: screenHeight * 0.06),
                     Container(
                       width: screenWidth,
-                      height: screenHeight*0.12,
+                      height: screenHeight * 0.12,
                       child: Image.asset("assets/images/k.jpeg"),
                     ),
-                    SizedBox(height: screenHeight*0.05),
-                    Text("Kambaii Health", style: TextStyle(fontSize: screenWidth*0.07,
-                        color: allColor.blackTextColor)),
+                    SizedBox(height: screenHeight * 0.05),
+                    Text("Kambaii Health",
+                        style: TextStyle(
+                            fontSize: screenWidth * 0.07,
+                            color: allColor.blackTextColor)),
                   ],
                 ),
               ),
               Padding(
-                padding:  EdgeInsets.only(top: screenWidth*0.12, left: screenWidth*0.05, right: screenWidth*0.05),
-                child: Text("Kambaii Health's 90-Days Long Lifestyle Changing Wellness Program is a transformational program "
+                padding: EdgeInsets.only(
+                    top: screenWidth * 0.12,
+                    left: screenWidth * 0.05,
+                    right: screenWidth * 0.05),
+                child: Text(
+                    "Kambaii Health's 90-Days Long Lifestyle Changing Wellness Program is a transformational program "
                     "that is designed to empower you to live happy, healthy, proactive and productive life with full of "
                     "confidence. Kambaii Health's primary objective is to provide a better health care through integrated "
-                    "medical managment, medicine managment, real time alert monitoring and target oriented wellness program"
-                    , style: TextStyle(fontSize: screenHeight*0.02, color: allColor.simpleTextColor)),
+                    "medical managment, medicine managment, real time alert monitoring and target oriented wellness program",
+                    style: TextStyle(
+                        fontSize: screenHeight * 0.02,
+                        color: allColor.simpleTextColor)),
               ),
-              SizedBox(height: screenHeight*0.27,),
-
+              SizedBox(
+                height: screenHeight * 0.27,
+              ),
               ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: allColor.elevatedBtnColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30)
-                  )
-                ),
-                  onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>LogSignPage()));
-                  }, 
-                  child:
-                  Padding(
-                    padding:  EdgeInsets.only(left: screenWidth*0.06, right: screenWidth*0.06,
-                        top: screenWidth*0.03, bottom: screenWidth*0.03),
-                    child: Text("Get Started", style: TextStyle(fontSize: screenWidth*0.05),),
+                  style: ElevatedButton.styleFrom(
+                      primary: allColor.elevatedBtnColor,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30))),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => LogSignPage()));
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                        left: screenWidth * 0.06,
+                        right: screenWidth * 0.06,
+                        top: screenWidth * 0.03,
+                        bottom: screenWidth * 0.03),
+                    child: Text(
+                      "Get Started",
+                      style: TextStyle(fontSize: screenWidth * 0.05),
+                    ),
                   )),
-
             ],
           ),
         ),
