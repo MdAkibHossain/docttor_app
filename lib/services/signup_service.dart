@@ -1,8 +1,10 @@
 import 'dart:convert';
 
 import 'package:design/screen/get_started.dart';
+import 'package:design/services/login_service.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../constants/api.dart';
@@ -10,8 +12,8 @@ import '../helper/others_helper.dart';
 import '../models/login_model.dart';
 import '../screen/home_page.dart';
 
-class LoginService with ChangeNotifier {
-  var loginDetails;
+class SignupService with ChangeNotifier {
+  var signupDetails;
 
   bool isloading = false;
 
@@ -25,12 +27,17 @@ class LoginService with ChangeNotifier {
     notifyListeners();
   }
 
-  login(String phone, String pass, BuildContext context,
-      {bool isfromLoginPage = true}) async {
+  signUp(String firstName, String lastName, String phone, String pass,
+      String email, BuildContext context) async {
     setLoadingTrue();
     var data = jsonEncode({
-      'username': phone,
+      'firstname': firstName,
+      'lastname': lastName,
+      'mobile': phone,
       'password': pass,
+      'email': email,
+      'type': "doctor",
+      'is_external': '1',
     });
     var header = {
       //if header type is application/json then the data should be in jsonEncode method
@@ -38,42 +45,35 @@ class LoginService with ChangeNotifier {
       "Content-Type": "application/json"
     };
 
-    var response = await http.post(Uri.parse('${Api().baseUrl}/login'),
+    var response = await http.post(Uri.parse('${Api().baseUrl}/register'),
         body: data, headers: header);
     var responsebody = jsonDecode(response.body);
 
     if (responsebody["error"] == false) {
-      loginDetails = LoginModel.fromJson(jsonDecode(response.body));
+      // signupDetails = LoginModel.fromJson(jsonDecode(response.body));
 
-      OthersHelper().showToast("Login successful", allColor.backGroundColor);
+      OthersHelper()
+          .showToast("Registration successful", allColor.backGroundColor);
 
       setLoadingFalse();
 
-      if (isfromLoginPage == true) {
-        Navigator.pushReplacement<void, void>(
-          context,
-          MaterialPageRoute<void>(
-            builder: (BuildContext context) => const HomePage(),
-          ),
-        );
-      }
+      Navigator.pushReplacement<void, void>(
+        context,
+        MaterialPageRoute<void>(
+          builder: (BuildContext context) => const HomePage(),
+        ),
+      );
 
-      // debugPrint(loginDetails.data.jwtToken[0].original.accessToken);
-
-      saveDatatoLocal(
-          loginDetails.data.jwtToken[0].original.accessToken,
-          loginDetails.data.jwtToken[0].original.tokenType,
-          phone,
-          pass,
-          context);
+      //  try to login
+      Provider.of<LoginService>(context, listen: false)
+          .login(phone, pass, context, isfromLoginPage: false);
 
       notifyListeners();
     } else {
-      //Login failed
+      //registration failed
 
       setLoadingFalse();
-      OthersHelper()
-          .showToast("Phone or password is not correct", allColor.redColor);
+      OthersHelper().showToast(responsebody["msg"], allColor.redColor);
     }
   }
 

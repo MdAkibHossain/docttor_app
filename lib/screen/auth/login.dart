@@ -2,11 +2,10 @@ import 'package:design/helper/custom_text_field.dart';
 import 'package:design/helper/others_helper.dart';
 import 'package:design/screen/forgot_password.dart';
 import 'package:design/screen/get_started.dart';
-import 'package:design/screen/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../services/login_service.dart';
+import '../../services/login_service.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -115,30 +114,35 @@ class _LoginState extends State<Login> {
                         )),
                     SizedBox(height: screenWidth * 0.15),
                     Center(
-                      child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              primary: allColor.backGroundColor,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10))),
-                          onPressed: () {
+                      child: InkWell(
+                          onTap: () {
                             if (_formKey.currentState!.validate()) {
-                              provider.login(_phoneController.text,
-                                  _passController.text, context);
+                              if (provider.isloading == false) {
+                                provider.login(_phoneController.text,
+                                    _passController.text, context);
+                              }
                             }
                           },
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                                left: screenWidth * 0.10,
-                                right: screenWidth * 0.10,
-                                top: screenWidth * 0.03,
-                                bottom: screenWidth * 0.03),
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                                color: allColor.backGroundColor,
+                                borderRadius: BorderRadius.circular(6)),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: screenWidth * 0.10,
+                                vertical: screenWidth * 0.04),
                             child: provider.isloading == false
                                 ? Text(
                                     "Log in",
-                                    style:
-                                        TextStyle(fontSize: screenWidth * 0.05),
+                                    style: TextStyle(
+                                        fontSize: screenWidth * 0.05,
+                                        color: Colors.white),
                                   )
-                                : OthersHelper().spinner(Colors.white),
+                                : SizedBox(
+                                    height: 23,
+                                    child:
+                                        OthersHelper().spinner(Colors.white)),
                           )),
                     ),
                   ],

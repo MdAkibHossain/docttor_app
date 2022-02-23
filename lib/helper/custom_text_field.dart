@@ -28,6 +28,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
     return TextFormField(
+      controller: widget.controller,
+      textInputAction: TextInputAction.next,
       validator: (value) {
         bool emailValid = RegExp(
                 r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")

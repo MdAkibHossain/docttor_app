@@ -1,7 +1,7 @@
-import 'package:design/screen/log_sin_page.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/color.dart';
+import 'auth/log_sin_page.dart';
 
 class GetStarted extends StatefulWidget {
   const GetStarted({Key? key}) : super(key: key);
