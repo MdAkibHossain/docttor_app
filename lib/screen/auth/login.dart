@@ -1,6 +1,6 @@
 import 'package:design/helper/custom_text_field.dart';
 import 'package:design/helper/others_helper.dart';
-import 'package:design/screen/forgot_password.dart';
+import 'package:design/screen/forgot_pass/forgot_password.dart';
 import 'package:design/screen/get_started.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

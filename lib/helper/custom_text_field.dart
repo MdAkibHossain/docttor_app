@@ -7,14 +7,16 @@ class CustomTextField extends StatefulWidget {
   String hintText;
   bool obsecureValue;
   var suffixIcon;
+  bool isNumberField;
 
-  CustomTextField({
-    Key? key,
-    required this.controller,
-    required this.hintText,
-    required this.obsecureValue,
-    required this.suffixIcon,
-  }) : super(key: key);
+  CustomTextField(
+      {Key? key,
+      required this.controller,
+      required this.hintText,
+      required this.obsecureValue,
+      required this.suffixIcon,
+      this.isNumberField = false})
+      : super(key: key);
 
   @override
   _CustomTextFieldState createState() => _CustomTextFieldState();
@@ -30,6 +32,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return TextFormField(
       controller: widget.controller,
       textInputAction: TextInputAction.next,
+      keyboardType:
+          widget.isNumberField ? TextInputType.number : TextInputType.text,
       validator: (value) {
         bool emailValid = RegExp(
                 r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
