@@ -1,9 +1,12 @@
 import 'dart:convert';
 
+import 'package:design/screen/auth/login.dart';
 import 'package:design/screen/forgot_pass/find_account.dart';
 import 'package:design/screen/get_started.dart';
+import 'package:design/services/forgot_password_service.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../constants/api.dart';
@@ -11,7 +14,7 @@ import '../helper/others_helper.dart';
 import '../models/login_model.dart';
 import '../screen/home_page.dart';
 
-class ForgotPasswordService with ChangeNotifier {
+class UpdateForgottenPasswordService with ChangeNotifier {
   var userId;
 
   bool isloading = false;
@@ -26,13 +29,19 @@ class ForgotPasswordService with ChangeNotifier {
     notifyListeners();
   }
 
-  findPhone(
-    String phone,
+  updatePass(
+    String otpNumber,
+    String password,
     BuildContext context,
   ) async {
+    var userId =
+        Provider.of<ForgotPasswordService>(context, listen: false).userId;
+
     setLoadingTrue();
     var data = jsonEncode({
-      'username': phone,
+      'userid': userId,
+      'password': password,
+      'otp': otpNumber,
     });
     var header = {
       //if header type is application/json then the data should be in jsonEncode method
@@ -41,35 +50,23 @@ class ForgotPasswordService with ChangeNotifier {
     };
 
     var response = await http.post(
-        Uri.parse('${Api().baseUrl}/match_mobile_number'),
+        Uri.parse('${Api().baseUrl}/code_combination'),
         body: data,
         headers: header);
     var responsebody = jsonDecode(response.body);
 
     if (responsebody["error"] == false) {
-      userId = responsebody['data']['userid'];
-
-      debugPrint('user id is $userId');
-
       OthersHelper()
           .showToast('${responsebody['msg']}', allColor.backGroundColor);
-
-      notifyListeners();
       setLoadingFalse();
 
-      Navigator.push(
-        context,
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) => const FindAccount(),
-        ),
-      );
+      Navigator.pop(context);
+      Navigator.pop(context);
 
       notifyListeners();
     } else {
-      //Account not found
-
       setLoadingFalse();
-      OthersHelper().showToast("No account found!", allColor.redColor);
+      OthersHelper().showToast("Invalid code!", allColor.redColor);
     }
   }
 }

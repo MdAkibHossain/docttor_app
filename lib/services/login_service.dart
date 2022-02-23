@@ -50,12 +50,9 @@ class LoginService with ChangeNotifier {
       setLoadingFalse();
 
       if (isfromLoginPage == true) {
-        Navigator.pushReplacement<void, void>(
-          context,
-          MaterialPageRoute<void>(
-            builder: (BuildContext context) => const HomePage(),
-          ),
-        );
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => const HomePage()),
+            (Route<dynamic> route) => false);
       }
 
       // debugPrint(loginDetails.data.jwtToken[0].original.accessToken);

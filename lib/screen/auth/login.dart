@@ -14,7 +14,7 @@ class Login extends StatefulWidget {
   _LoginState createState() => _LoginState();
 }
 
-final _formKey = GlobalKey<FormState>();
+GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
 TextEditingController _phoneController = TextEditingController();
 TextEditingController _passController = TextEditingController();
@@ -116,6 +116,7 @@ class _LoginState extends State<Login> {
                     Center(
                       child: InkWell(
                           onTap: () {
+                            FocusScope.of(context).unfocus();
                             if (_formKey.currentState!.validate()) {
                               if (provider.isloading == false) {
                                 provider.login(_phoneController.text,

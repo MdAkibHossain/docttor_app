@@ -191,6 +191,7 @@ class _SignUpState extends State<SignUp> {
                     Center(
                       child: InkWell(
                           onTap: () {
+                            FocusScope.of(context).unfocus();
                             if (_signUpKey.currentState!.validate()) {
                               if (_passController.text !=
                                   _confirmPassController.text) {
