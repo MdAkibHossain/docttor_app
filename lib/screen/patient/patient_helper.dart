@@ -1,68 +1,90 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:design/screen/get_started.dart';
+import 'package:design/screen/others_screen/add_new_medicine.dart';
+import 'package:design/screen/others_screen/call_the_patient.dart';
+import 'package:design/screen/others_screen/lab_report.dart';
+import 'package:design/screen/others_screen/medical_history.dart';
+import 'package:design/screen/others_screen/medicine_list.dart';
+import 'package:design/screen/others_screen/order_labs.dart';
+import 'package:design/screen/others_screen/pcp_next_page.dart';
+import 'package:design/screen/others_screen/pcp_notes_one.dart';
+import 'package:design/screen/others_screen/provisional.dart';
+import 'package:design/screen/others_screen/review_vitals.dart';
+import 'package:design/screen/others_screen/special_assessment.dart';
+import 'package:design/screen/others_screen/stop_old_medicine.dart';
 import 'package:flutter/material.dart';
+import 'package:design/screen/others_screen/prescription_formate.dart';
 
 class PatientHelper {
-  // Widget profileCard() {
-  //   return Container(
-  //     width: double.infinity,
-  //     decoration: BoxDecoration(
-  //       color: Colors.white,
-  //       borderRadius: BorderRadius.circular(5),
-  //       boxShadow: [
-  //         BoxShadow(
-  //             color: Colors.black.withOpacity(0.01),
-  //             spreadRadius: -2,
-  //             blurRadius: 13,
-  //             offset: const Offset(0, 13)),
-  //       ],
-  //     ),
-  //     padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15),
-  //     child: Column(
-  //       mainAxisAlignment: MainAxisAlignment.center,
-  //       crossAxisAlignment: CrossAxisAlignment.center,
-  //       children: [
-  //         //profile image
-  //         SizedBox(
-  //           width: 60,
-  //           height: 60,
-  //           child: ClipRRect(
-  //             borderRadius: BorderRadius.circular(100),
-  //             child: CachedNetworkImage(
-  //               imageUrl:
-  //                   'https://cdn.pixabay.com/photo/2014/08/05/10/30/iphone-410324__340.jpg',
-  //               placeholder: (context, url) {
-  //                 return Image.asset('assets/images/placeholder.png');
-  //               },
-  //               errorWidget: (context, url, error) => const Icon(Icons.error),
-  //               height: 60,
-  //               width: 60,
-  //               fit: BoxFit.cover,
-  //             ),
-  //           ),
-  //         ),
-  //         const SizedBox(
-  //           width: 13,
-  //         ),
-  //         Text(
-  //           "S.M. Saleheen",
-  //           style: TextStyle(color: allColor.blackTextColor, fontSize: 18),
-  //         ),
-  //         const SizedBox(
-  //           height: 6,
-  //         ),
-  //         //username
-  //         Text(
-  //           "01625683832",
-  //           style: TextStyle(
-  //             color: allColor.blackTextColor,
-  //             fontSize: 12,
-  //           ),
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
+  navigate(BuildContext context, int i) {
+    if (i == 0) {
+      return Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const Prescription()));
+    } else if (i == 0) {
+      return Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const PcpNotesOne()));
+    } else if (i == 1) {
+      return Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const PcpNextPage()));
+    } else if (i == 2) {
+      return Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const ReviewVitals()));
+    } else if (i == 3) {
+      return Navigator.push(
+          context, MaterialPageRoute(builder: (context) => const Medical()));
+    } else if (i == 4) {
+      return Navigator.push(
+          context, MaterialPageRoute(builder: (context) => const LabReport()));
+    } else if (i == 5) {
+      return Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const Provitional()));
+    } else if (i == 6) {
+      return Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => const SpecialistAssessment()));
+    } else if (i == 7) {
+      return Navigator.push(
+          context, MaterialPageRoute(builder: (context) => const OrderLabs()));
+    } else if (i == 8) {
+      return Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const MedicineList()));
+    } else if (i == 9) {
+      return Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const StopOldMedicine()));
+    } else if (i == 10) {
+      return Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const CallThePatient()));
+    } else {
+      return Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const AddNewMedicine()));
+    }
+  }
+
+  List buttonList = [
+    "My prescription",
+    "PCP visit summary",
+    "Write Notes to PCP",
+    "Review Vitals",
+    "Medical History",
+    "View Lab Report",
+    "Provisional Diagnosis",
+    "Specialist Assessment",
+    "Order Labs",
+    "Medicine List",
+    "Stop old medicine",
+    "Call the patient",
+    "Add new medicine",
+  ];
+
+  List buttonIcons = [
+    "assets/icons/informative.png",
+    "assets/icons/home-blue.png",
+    "assets/icons/note.png",
+    "assets/icons/trolley.png",
+    "assets/icons/rating.png",
+    "assets/icons/blogging.png"
+  ];
 
   //top grey bar
   topgreyBar(String title) {
