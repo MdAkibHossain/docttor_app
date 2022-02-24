@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../services/login_service.dart';
+import '../home_page.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -75,6 +76,7 @@ class _LoginState extends State<Login> {
                     ),
                     CustomTextField(
                       controller: _phoneController,
+                      isNumberField: true,
                       hintText: "Enter your phone number",
                       suffixIcon: const Icon(Icons.phone),
                       obsecureValue: false,
@@ -117,12 +119,16 @@ class _LoginState extends State<Login> {
                       child: InkWell(
                           onTap: () {
                             FocusScope.of(context).unfocus();
-                            if (_formKey.currentState!.validate()) {
-                              if (provider.isloading == false) {
-                                provider.login(_phoneController.text,
-                                    _passController.text, context);
-                              }
-                            }
+                            // if (_formKey.currentState!.validate()) {
+                            //   if (provider.isloading == false) {
+                            //     provider.login(_phoneController.text,
+                            //         _passController.text, context);
+                            //   }
+                            // }
+                            Navigator.of(context).pushAndRemoveUntil(
+                                MaterialPageRoute(
+                                    builder: (context) => const HomePage()),
+                                (Route<dynamic> route) => false);
                           },
                           child: Container(
                             alignment: Alignment.center,
