@@ -1,5 +1,5 @@
 import 'package:design/screen/get_started.dart';
-import 'package:design/screen/others_screen/pcp_next_page.dart';
+import 'package:design/screen/patient_datas/pcp_next_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

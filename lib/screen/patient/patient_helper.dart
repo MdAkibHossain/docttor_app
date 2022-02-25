@@ -6,10 +6,10 @@ import 'package:design/screen/others_screen/lab_report.dart';
 import 'package:design/screen/others_screen/medical_history.dart';
 import 'package:design/screen/others_screen/medicine_list.dart';
 import 'package:design/screen/others_screen/order_labs.dart';
-import 'package:design/screen/others_screen/pcp_next_page.dart';
+import 'package:design/screen/patient_datas/pcp_next_page.dart';
 import 'package:design/screen/others_screen/pcp_notes_one.dart';
 import 'package:design/screen/others_screen/provisional.dart';
-import 'package:design/screen/others_screen/review_vitals.dart';
+import 'package:design/screen/patient_datas/review_vitals.dart';
 import 'package:design/screen/others_screen/special_assessment.dart';
 import 'package:design/screen/others_screen/stop_old_medicine.dart';
 import 'package:flutter/material.dart';
@@ -20,39 +20,39 @@ class PatientHelper {
     if (i == 0) {
       return Navigator.push(context,
           MaterialPageRoute(builder: (context) => const Prescription()));
-    } else if (i == 0) {
-      return Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const PcpNotesOne()));
     } else if (i == 1) {
       return Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const PcpNextPage()));
+          MaterialPageRoute(builder: (context) => const PcpNotesOne()));
     } else if (i == 2) {
       return Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const ReviewVitals()));
+          MaterialPageRoute(builder: (context) => const PcpNextPage()));
     } else if (i == 3) {
-      return Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const Medical()));
+      return Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const ReviewVitals()));
     } else if (i == 4) {
       return Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const LabReport()));
+          context, MaterialPageRoute(builder: (context) => const Medical()));
     } else if (i == 5) {
+      return Navigator.push(
+          context, MaterialPageRoute(builder: (context) => const LabReport()));
+    } else if (i == 6) {
       return Navigator.push(context,
           MaterialPageRoute(builder: (context) => const Provitional()));
-    } else if (i == 6) {
+    } else if (i == 7) {
       return Navigator.push(
           context,
           MaterialPageRoute(
               builder: (context) => const SpecialistAssessment()));
-    } else if (i == 7) {
+    } else if (i == 8) {
       return Navigator.push(
           context, MaterialPageRoute(builder: (context) => const OrderLabs()));
-    } else if (i == 8) {
-      return Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const MedicineList()));
     } else if (i == 9) {
       return Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const StopOldMedicine()));
+          MaterialPageRoute(builder: (context) => const MedicineList()));
     } else if (i == 10) {
+      return Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const StopOldMedicine()));
+    } else if (i == 11) {
       return Navigator.push(context,
           MaterialPageRoute(builder: (context) => const CallThePatient()));
     } else {
@@ -137,5 +137,37 @@ class PatientHelper {
         ],
       ),
     );
+  }
+
+//user name and profile image card
+  nameAndImage(String name, String imageLink) {
+    return Row(children: [
+      Text(
+        name,
+        style: TextStyle(
+            color: allColor.blackTextColor,
+            fontSize: 22,
+            fontWeight: FontWeight.bold),
+      ),
+      const Spacer(),
+      SizedBox(
+        width: 65,
+        height: 65,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(100),
+          child: CachedNetworkImage(
+            imageUrl:
+                'https://dev.kambaiihealth.com/public/profile_pic/$imageLink',
+            placeholder: (context, url) {
+              return Image.asset('assets/images/placeholder.png');
+            },
+            errorWidget: (context, url, error) => const Icon(Icons.error),
+            height: 65,
+            width: 65,
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
+    ]);
   }
 }
