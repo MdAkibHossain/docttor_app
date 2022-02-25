@@ -46,10 +46,8 @@ class _ReviewVitalsState extends State<ReviewVitals> {
                 SizedBox(
                   height: screenWidth * 0.05,
                 ),
-                //User name and profile card
-                PatientHelper().nameAndImage(
-                    provider.patientDetails.data.uinfo.name ?? "",
-                    provider.patientDetails.data.uinfo.photo),
+                //User name and profile image
+                PatientHelper().nameAndImage(),
                 SizedBox(height: screenWidth * 0.05),
                 Container(
                   color: const Color(0xffff7e11),

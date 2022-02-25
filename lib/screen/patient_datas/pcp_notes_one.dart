@@ -43,18 +43,8 @@ class _PcpNotesOneState extends State<PcpNotesOne> {
                 SizedBox(
                   height: screenWidth * 0.05,
                 ),
-                Row(children: [
-                  Text("Javed Ahmad M/46",
-                      style: TextStyle(
-                          fontSize: screenWidth * 0.06,
-                          fontWeight: FontWeight.bold)),
-                  const Spacer(),
-                  SizedBox(
-                    height: screenHeight * 0.08,
-                    child:
-                        const Image(image: AssetImage("assets/images/men.png")),
-                  )
-                ]),
+                PatientHelper().nameAndImage(),
+                //User name and profile image
                 SizedBox(height: screenWidth * 0.05),
                 Container(
                   color: const Color(0xffe2eaf5),

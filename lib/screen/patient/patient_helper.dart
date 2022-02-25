@@ -7,13 +7,16 @@ import 'package:design/screen/others_screen/medical_history.dart';
 import 'package:design/screen/others_screen/medicine_list.dart';
 import 'package:design/screen/others_screen/order_labs.dart';
 import 'package:design/screen/patient_datas/pcp_next_page.dart';
-import 'package:design/screen/others_screen/pcp_notes_one.dart';
+import 'package:design/screen/patient_datas/pcp_notes_one.dart';
 import 'package:design/screen/others_screen/provisional.dart';
 import 'package:design/screen/patient_datas/review_vitals.dart';
 import 'package:design/screen/others_screen/special_assessment.dart';
 import 'package:design/screen/others_screen/stop_old_medicine.dart';
 import 'package:flutter/material.dart';
 import 'package:design/screen/others_screen/prescription_formate.dart';
+import 'package:provider/provider.dart';
+
+import '../../services/patient_details_service.dart';
 
 class PatientHelper {
   navigate(BuildContext context, int i) {
@@ -78,12 +81,19 @@ class PatientHelper {
   ];
 
   List buttonIcons = [
-    "assets/icons/informative.png",
-    "assets/icons/home-blue.png",
-    "assets/icons/note.png",
-    "assets/icons/trolley.png",
-    "assets/icons/rating.png",
-    "assets/icons/blogging.png"
+    "assets/icons/pills.png",
+    "assets/icons/summary.png",
+    "assets/icons/notes.png",
+    "assets/icons/vitals.png",
+    "assets/icons/med-history.png",
+    "assets/icons/lab-report.png",
+    "assets/icons/diagnostic.png",
+    "assets/icons/assessment.png",
+    "assets/icons/lab.png",
+    "assets/icons/list.png",
+    "assets/icons/stop.png",
+    "assets/icons/call.png",
+    "assets/icons/add.png",
   ];
 
   //top grey bar
@@ -140,34 +150,36 @@ class PatientHelper {
   }
 
 //user name and profile image card
-  nameAndImage(String name, String imageLink) {
-    return Row(children: [
-      Text(
-        name,
-        style: TextStyle(
-            color: allColor.blackTextColor,
-            fontSize: 22,
-            fontWeight: FontWeight.bold),
-      ),
-      const Spacer(),
-      SizedBox(
-        width: 65,
-        height: 65,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(100),
-          child: CachedNetworkImage(
-            imageUrl:
-                'https://dev.kambaiihealth.com/public/profile_pic/$imageLink',
-            placeholder: (context, url) {
-              return Image.asset('assets/images/placeholder.png');
-            },
-            errorWidget: (context, url, error) => const Icon(Icons.error),
-            height: 65,
-            width: 65,
-            fit: BoxFit.cover,
+  nameAndImage() {
+    return Consumer<PatientDetailsService>(
+      builder: (context, provider, child) => Row(children: [
+        Text(
+          provider.patientDetails.data.uinfo.name ?? "",
+          style: TextStyle(
+              color: allColor.blackTextColor,
+              fontSize: 22,
+              fontWeight: FontWeight.bold),
+        ),
+        const Spacer(),
+        SizedBox(
+          width: 65,
+          height: 65,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(100),
+            child: CachedNetworkImage(
+              imageUrl:
+                  'https://dev.kambaiihealth.com/public/profile_pic/${provider.patientDetails.data.uinfo.photo}',
+              placeholder: (context, url) {
+                return Image.asset('assets/images/placeholder.png');
+              },
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+              height: 65,
+              width: 65,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
-      ),
-    ]);
+      ]),
+    );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:design/screen/get_started.dart';
 import 'package:design/screen/patient/patient_details.dart';
-import 'package:design/screen/others_screen/pcp_notes_one.dart';
+import 'package:design/screen/patient_datas/pcp_notes_one.dart';
 import 'package:design/screen/others_screen/view_patient_details.dart';
 import 'package:flutter/material.dart';
 

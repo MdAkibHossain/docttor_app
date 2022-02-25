@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterzilla_fixed_grid/flutterzilla_fixed_grid.dart';
 import 'package:provider/provider.dart';
 
-import '../others_screen/pcp_notes_one.dart';
+import '../patient_datas/pcp_notes_one.dart';
 
 class PatientDetails extends StatefulWidget {
   const PatientDetails({Key? key}) : super(key: key);
@@ -162,8 +162,7 @@ class _PatientDetailsState extends State<PatientDetails> {
 
                           //Buttons=============>
                           Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 15),
+                            padding: const EdgeInsets.fromLTRB(20, 35, 20, 0),
                             decoration: BoxDecoration(
                               color: Colors.white,
                               boxShadow: [
@@ -179,7 +178,7 @@ class _PatientDetailsState extends State<PatientDetails> {
                                   crossAxisCount: 3,
                                   mainAxisSpacing: 0,
                                   crossAxisSpacing: 15,
-                                  height: 113),
+                                  height: 110),
                               itemCount: 13,
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
@@ -189,17 +188,18 @@ class _PatientDetailsState extends State<PatientDetails> {
                                     PatientHelper().navigate(context, index);
                                   },
                                   child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
                                       Container(
-                                        height: 35.0,
+                                        height: 23.0,
                                         width: double.infinity,
-                                        decoration: const BoxDecoration(
+                                        decoration: BoxDecoration(
                                           image: DecorationImage(
                                             image: AssetImage(
-                                              "assets/images/medicine.png",
+                                              PatientHelper()
+                                                  .buttonIcons[index],
                                             ),
                                           ),
                                         ),
