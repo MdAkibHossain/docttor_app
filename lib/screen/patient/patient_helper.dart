@@ -4,6 +4,7 @@ import 'package:design/screen/others_screen/add_new_medicine.dart';
 import 'package:design/screen/others_screen/call_the_patient.dart';
 import 'package:design/screen/others_screen/lab_report.dart';
 import 'package:design/screen/others_screen/medical_history.dart';
+import 'package:design/screen/others_screen/drug_interaction.dart';
 import 'package:design/screen/others_screen/medicine_list.dart';
 import 'package:design/screen/others_screen/order_labs.dart';
 import 'package:design/screen/patient_datas/pcp_next_page.dart';
@@ -22,78 +23,83 @@ class PatientHelper {
   navigate(BuildContext context, int i) {
     if (i == 0) {
       return Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const Prescription()));
-    } else if (i == 1) {
-      return Navigator.push(context,
           MaterialPageRoute(builder: (context) => const PcpNotesOne()));
+    } else if (i == 1) {
+      return Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => const Medical())); //medical history
     } else if (i == 2) {
       return Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const PcpNextPage()));
-    } else if (i == 3) {
-      return Navigator.push(context,
           MaterialPageRoute(builder: (context) => const ReviewVitals()));
-    } else if (i == 4) {
-      return Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const Medical()));
-    } else if (i == 5) {
+    } else if (i == 3) {
       return Navigator.push(
           context, MaterialPageRoute(builder: (context) => const LabReport()));
-    } else if (i == 6) {
+    } else if (i == 4) {
       return Navigator.push(context,
           MaterialPageRoute(builder: (context) => const Provitional()));
-    } else if (i == 7) {
+    } else if (i == 5) {
       return Navigator.push(
           context,
           MaterialPageRoute(
               builder: (context) => const SpecialistAssessment()));
-    } else if (i == 8) {
-      return Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const OrderLabs()));
-    } else if (i == 9) {
+    } else if (i == 6) {
       return Navigator.push(context,
           MaterialPageRoute(builder: (context) => const MedicineList()));
-    } else if (i == 10) {
+    } else if (i == 7) {
+      return Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  const DrugInteraction())); // drug interaction
+    } else if (i == 8) {
       return Navigator.push(context,
           MaterialPageRoute(builder: (context) => const StopOldMedicine()));
-    } else if (i == 11) {
+    } else if (i == 9) {
       return Navigator.push(context,
           MaterialPageRoute(builder: (context) => const CallThePatient()));
-    } else {
+    } else if (i == 10) {
+      return Navigator.push(
+          context, MaterialPageRoute(builder: (context) => const OrderLabs()));
+    } else if (i == 11) {
       return Navigator.push(context,
           MaterialPageRoute(builder: (context) => const AddNewMedicine()));
+    } else {
+      return Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const Prescription()));
     }
   }
 
   List buttonList = [
-    "My prescription",
     "PCP visit summary",
-    "Write Notes to PCP",
-    "Review Vitals",
     "Medical History",
+    "Review Vitals",
     "View Lab Report",
     "Provisional Diagnosis",
     "Specialist Assessment",
-    "Order Labs",
     "Medicine List",
+    "Drug Interaction",
     "Stop old medicine",
     "Call the patient",
+    "Order Labs",
     "Add new medicine",
+    "My prescription",
   ];
 
   List buttonIcons = [
-    "assets/icons/pills.png",
     "assets/icons/summary.png",
-    "assets/icons/notes.png",
-    "assets/icons/vitals.png",
     "assets/icons/med-history.png",
+    "assets/icons/vitals.png",
     "assets/icons/lab-report.png",
     "assets/icons/diagnostic.png",
     "assets/icons/assessment.png",
-    "assets/icons/lab.png",
     "assets/icons/list.png",
+    "assets/icons/drug-interaction.png",
     "assets/icons/stop.png",
     "assets/icons/call.png",
+    "assets/icons/lab.png",
     "assets/icons/add.png",
+    "assets/icons/pills.png",
   ];
 
   //top grey bar

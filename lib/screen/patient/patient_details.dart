@@ -2,15 +2,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:design/helper/common_helper.dart';
 import 'package:design/helper/others_helper.dart';
 import 'package:design/screen/get_started.dart';
-import 'package:design/screen/others_screen/prescription_formate.dart';
 import 'package:design/screen/patient/patient_helper.dart';
 import 'package:design/services/common_service.dart';
 import 'package:design/services/patient_details_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterzilla_fixed_grid/flutterzilla_fixed_grid.dart';
 import 'package:provider/provider.dart';
-
-import '../patient_datas/pcp_notes_one.dart';
 
 class PatientDetails extends StatefulWidget {
   const PatientDetails({Key? key}) : super(key: key);

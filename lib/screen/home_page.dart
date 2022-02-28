@@ -1,5 +1,5 @@
 import 'package:design/screen/get_started.dart';
-import 'package:design/screen/others_screen/medicine.dart';
+import 'package:design/screen/others_screen/drug_interaction.dart';
 import 'package:design/screen/others_screen/my_wallet.dart';
 import 'package:design/screen/others_screen/profile.dart';
 import 'package:design/screen/patient/patient_list.dart';
@@ -175,7 +175,7 @@ class _HomePageState extends State<HomePage> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  const Medicine()));
+                                                  const DrugInteraction()));
                                     },
                                     child: Image.asset(
                                         "assets/images/medicine.png")),

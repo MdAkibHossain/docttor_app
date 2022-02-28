@@ -119,16 +119,16 @@ class _LoginState extends State<Login> {
                       child: InkWell(
                           onTap: () {
                             FocusScope.of(context).unfocus();
-                            // if (_formKey.currentState!.validate()) {
-                            //   if (provider.isloading == false) {
-                            //     provider.login(_phoneController.text,
-                            //         _passController.text, context);
-                            //   }
-                            // }
-                            Navigator.of(context).pushAndRemoveUntil(
-                                MaterialPageRoute(
-                                    builder: (context) => const HomePage()),
-                                (Route<dynamic> route) => false);
+                            if (_formKey.currentState!.validate()) {
+                              if (provider.isloading == false) {
+                                provider.login(_phoneController.text,
+                                    _passController.text, context);
+                              }
+                            }
+                            // Navigator.of(context).pushAndRemoveUntil(
+                            //     MaterialPageRoute(
+                            //         builder: (context) => const HomePage()),
+                            //     (Route<dynamic> route) => false);
                           },
                           child: Container(
                             alignment: Alignment.center,
