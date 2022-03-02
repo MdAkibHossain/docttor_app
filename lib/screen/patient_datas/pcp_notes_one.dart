@@ -43,8 +43,10 @@ class _PcpNotesOneState extends State<PcpNotesOne> {
                 SizedBox(
                   height: screenWidth * 0.05,
                 ),
+
+                //User name and profile image ==============>
                 PatientHelper().nameAndImage(),
-                //User name and profile image
+
                 SizedBox(height: screenWidth * 0.05),
                 Container(
                   color: const Color(0xffe2eaf5),
