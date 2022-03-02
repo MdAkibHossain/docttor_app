@@ -84,7 +84,7 @@ class _ReviewVitalsState extends State<ReviewVitals> {
                           ),
                       ],
                     )),
-                SizedBox(height: 27),
+                const SizedBox(height: 27),
                 InkWell(
                   onTap: () {},
                   child: Container(

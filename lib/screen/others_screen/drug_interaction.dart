@@ -1,4 +1,9 @@
+import 'package:design/services/drug_interaction_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../helper/others_helper.dart';
+import '../get_started.dart';
 
 class DrugInteraction extends StatefulWidget {
   const DrugInteraction({Key? key}) : super(key: key);
@@ -8,6 +13,15 @@ class DrugInteraction extends StatefulWidget {
 }
 
 class _DrugInteractionState extends State<DrugInteraction> {
+  TextEditingController medNameControllerOne = TextEditingController();
+  TextEditingController medNameControllerTwo = TextEditingController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
@@ -15,64 +29,135 @@ class _DrugInteractionState extends State<DrugInteraction> {
     return SafeArea(
         child: Scaffold(
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: screenHeight * 0.05,
-            ),
-            Padding(
-              padding: EdgeInsets.all(screenWidth * 0.05),
-              child: Row(children: [
-                Text(
-                  "KAMBAII",
-                  style: TextStyle(
-                      fontSize: screenWidth * 0.06,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blueGrey),
-                ),
-                Spacer(),
-                Padding(
-                    padding: EdgeInsets.only(right: screenWidth * 0.02),
-                    child: Container(
-                        height: screenHeight * 0.07,
-                        child: Image.asset("assets/images/k.jpeg")))
-              ]),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                  left: screenWidth * 0.03,
-                  right: screenWidth * 0.03,
-                  top: screenWidth * 0.02),
-              child: Row(
-                children: [
-                  Container(
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                            focusColor: Colors.blueGrey,
-                            hoverColor: Colors.blueGrey,
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.blueGrey),
-                            ),
-                            hintText: "Search DrugInteraction here"),
-                      ),
-                      height: screenHeight * 0.06,
-                      width: screenWidth * 0.72,
-                      color: Colors.white),
-                  Container(
-                    child: InkWell(
-                        onTap: () {},
-                        child: Icon(
-                          Icons.search,
-                          color: Colors.white,
-                        )),
-                    height: screenHeight * 0.06,
-                    width: screenWidth * 0.20,
-                    color: Colors.red,
-                  ),
-                ],
+        child: Consumer<DrugInteractionService>(
+          builder: (context, provider, child) => Column(
+            children: [
+              SizedBox(
+                height: screenHeight * 0.05,
               ),
-            ),
-          ],
+              Padding(
+                padding: EdgeInsets.all(screenWidth * 0.05),
+                child: Row(children: [
+                  Text(
+                    "KAMBAII",
+                    style: TextStyle(
+                        fontSize: screenWidth * 0.06,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blueGrey),
+                  ),
+                  const Spacer(),
+                  Padding(
+                      padding: EdgeInsets.only(right: screenWidth * 0.02),
+                      child: SizedBox(
+                          height: screenHeight * 0.07,
+                          child: Image.asset("assets/images/k.jpeg")))
+                ]),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                    left: screenWidth * 0.03,
+                    right: screenWidth * 0.03,
+                    top: screenWidth * 0.02),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                          child: TextFormField(
+                            controller: medNameControllerOne,
+                            textInputAction: TextInputAction.next,
+                            decoration: const InputDecoration(
+                                focusColor: Colors.blueGrey,
+                                hoverColor: Colors.blueGrey,
+                                border: OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.blueGrey),
+                                ),
+                                hintText: "Medicine name"),
+                          ),
+                          height: 50,
+                          color: Colors.white),
+                    ),
+
+                    //Second input field ===============>
+                    const SizedBox(width: 15),
+
+                    Expanded(
+                      child: Container(
+                          child: TextFormField(
+                            controller: medNameControllerTwo,
+                            textInputAction: TextInputAction.next,
+                            decoration: const InputDecoration(
+                                focusColor: Colors.blueGrey,
+                                hoverColor: Colors.blueGrey,
+                                border: OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.blueGrey),
+                                ),
+                                hintText: "Medicine name"),
+                          ),
+                          height: 50,
+                          color: Colors.white),
+                    ),
+
+                    //Search button ================>
+                    const SizedBox(width: 10),
+                    Container(
+                      child: InkWell(
+                          onTap: () {
+                            FocusScope.of(context).unfocus();
+                            Provider.of<DrugInteractionService>(context,
+                                    listen: false)
+                                .fetchDrugInteraction(medNameControllerOne.text,
+                                    medNameControllerTwo.text);
+                          },
+                          child: const Icon(
+                            Icons.search,
+                            color: Colors.white,
+                          )),
+                      height: 50,
+                      width: 50,
+                      color: Colors.red,
+                    ),
+                  ],
+                ),
+              ),
+              provider.isloading != true
+                  ? provider.drugInteractionData != null
+                      ? provider.drugInteractionData != "error"
+                          ? Container(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 25),
+                              margin: const EdgeInsets.only(top: 40),
+                              child: Column(children: [
+                                Text(
+                                    provider.drugInteractionData['data']['data']
+                                        ['nlmDisclaimer'],
+                                    style: const TextStyle(height: 1.3)),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  provider.drugInteractionData['data']['data']
+                                          ['fullInteractionTypeGroup'][0]
+                                      ['fullInteractionType'][0]['comment'],
+                                  style: const TextStyle(height: 1.3),
+                                )
+                              ]),
+                            )
+                          : Container(
+                              height: screenHeight - 180,
+                              alignment: Alignment.center,
+                              child: const Text("Something went wrong"))
+                      : Container(
+                          // show nothing when no data is loaded
+                          )
+                  : Container(
+                      height: screenHeight - 180,
+                      alignment: Alignment.center,
+                      child: OthersHelper().spinner(allColor.backGroundColor),
+                    ),
+            ],
+          ),
         ),
       ),
     ));

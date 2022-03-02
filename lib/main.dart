@@ -1,4 +1,5 @@
 import 'package:design/screen/get_started.dart';
+import 'package:design/services/drug_interaction_service.dart';
 import 'package:design/services/forgot_password_service.dart';
 import 'package:design/services/lab_report_service.dart';
 import 'package:design/services/login_service.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => UpdateForgottenPasswordService()),
         ChangeNotifierProvider(create: (_) => PatientDetailsService()),
         ChangeNotifierProvider(create: (_) => LabReportService()),
+        ChangeNotifierProvider(create: (_) => DrugInteractionService()),
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
