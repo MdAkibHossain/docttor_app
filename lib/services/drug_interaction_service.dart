@@ -10,6 +10,8 @@ import '../constants/api.dart';
 class DrugInteractionService with ChangeNotifier {
   var drugInteractionData;
 
+  bool isDataExist = false;
+
   bool isloading = false;
 
   setLoadingTrue() {
@@ -55,12 +57,13 @@ class DrugInteractionService with ChangeNotifier {
 
     var responsebody = jsonDecode(response.body);
 
-    print(responsebody);
-
     if (responsebody["error"] == false) {
       // drugInteractionData = LabReportModel.fromJson(jsonDecode(response.body));
 
       drugInteractionData = responsebody;
+      //check if these field exist in json data
+      isDataExist =
+          responsebody['data']['data'].containsKey('fullInteractionTypeGroup');
 
       setLoadingFalse();
       notifyListeners();

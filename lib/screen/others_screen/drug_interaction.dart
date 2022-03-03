@@ -130,16 +130,21 @@ class _DrugInteractionState extends State<DrugInteraction> {
                               margin: const EdgeInsets.only(top: 40),
                               child: Column(children: [
                                 Text(
-                                    provider.drugInteractionData['data']['data']
-                                        ['nlmDisclaimer'],
+                                    provider.isDataExist == true
+                                        ? provider.drugInteractionData['data']
+                                            ['data']['nlmDisclaimer']
+                                        : " ",
                                     style: const TextStyle(height: 1.3)),
                                 const SizedBox(
                                   height: 20,
                                 ),
                                 Text(
-                                  provider.drugInteractionData['data']['data']
-                                          ['fullInteractionTypeGroup'][0]
-                                      ['fullInteractionType'][0]['comment'],
+                                  provider.isDataExist == true
+                                      ? provider.drugInteractionData['data']
+                                                  ['data']
+                                              ['fullInteractionTypeGroup'][0]
+                                          ['fullInteractionType'][0]['comment']
+                                      : " ",
                                   style: const TextStyle(height: 1.3),
                                 )
                               ]),
@@ -148,9 +153,7 @@ class _DrugInteractionState extends State<DrugInteraction> {
                               height: screenHeight - 180,
                               alignment: Alignment.center,
                               child: const Text("Something went wrong"))
-                      : Container(
-                          // show nothing when no data is loaded
-                          )
+                      : Container()
                   : Container(
                       height: screenHeight - 180,
                       alignment: Alignment.center,

@@ -5,12 +5,12 @@ class CommonHelper {
   appbarSimple(String title) {
     return AppBar(
       title: Text(title,
-          style: TextStyle(color: allColor.blackTextColor, fontSize: 16)),
+          style: TextStyle(color: allColor.blackTextColor, fontSize: 17)),
       iconTheme: IconThemeData(
         color: allColor.blackTextColor, //change your color here
       ),
       backgroundColor: Colors.white,
-      centerTitle: true,
+      // centerTitle: true,
       elevation: 0,
     );
   }
