@@ -151,14 +151,14 @@ class _OrderLabsState extends State<OrderLabs> {
                                             BorderRadius.circular(30)),
                                     primary: Color(0xffb3d9ef)),
                                 onPressed: () {
-                                  // Navigator.push(
-                                  //     context,
-                                  //     MaterialPageRoute(
-                                  //         builder: (context) =>
-                                  //             ShowLabReport()));
-                                  Provider.of<LabReportSer>(context,
-                                          listen: false)
-                                      .fetchLabReport();
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              ShowLabReport()));
+                                  // Provider.of<LabReportSer>(context,
+                                  //         listen: false)
+                                  //     .fetchLabReport();
                                 },
                                 child: Padding(
                                   padding: EdgeInsets.only(

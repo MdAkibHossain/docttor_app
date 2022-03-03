@@ -47,7 +47,6 @@ class LabReportService with ChangeNotifier {
         headers: header);
 
     var responsebody = jsonDecode(response.body);
-    print(responsebody);
 
     if (responsebody["error"] == false) {
       labReports = LabReportModel.fromJson(jsonDecode(response.body));
