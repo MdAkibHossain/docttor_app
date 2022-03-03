@@ -19,14 +19,17 @@ class LabReportSer with ChangeNotifier {
       // "Content-Type": "application/json",
       "Authorization": "Bearer $token",
     };
+    //test_list/718'
+//all_lab_test_list
+    var response =
+        await http.get(Uri.parse('${Api().baseUrl}/delete_order_lab/112'),
+            // body: data,
+            headers: header);
 
-    var response = await http.get(Uri.parse('${Api().baseUrl}/test_list/718'),
-        // body: data,
-        headers: header);
     var responsebody = jsonDecode(response.body);
-    print(responsebody['data']['testname']);
-    if (responsebody["error"] == false) {
-      labReports = LabReportModel.fromJson(jsonDecode(response.body));
-    }
+    print(responsebody);
+    // if (responsebody["error"] == false) {
+    //   labReports = LabReportModel.fromJson(jsonDecode(response.body));
+    // }
   }
 }
