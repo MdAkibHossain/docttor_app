@@ -1,14 +1,7 @@
 import 'package:design/screen/get_started.dart';
-import 'package:design/screen/others_screen/given_test.dart';
-import 'package:design/screen/others_screen/lab_report.dart';
-import 'package:design/screen/others_screen/medicine_list.dart';
-import 'package:design/screen/others_screen/order_labs_two.dart';
+import 'package:design/screen/others_screen/given_test_page.dart';
 import 'package:design/screen/others_screen/patient_test_history.dart';
-import 'package:design/screen/others_screen/stop_old_medicine.dart';
-import 'package:design/services/lab_report_service.dart';
-import 'package:design/services/lab_reports_Ser.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class OrderLabs extends StatefulWidget {
   const OrderLabs({Key? key}) : super(key: key);
@@ -46,8 +39,8 @@ class _OrderLabsState extends State<OrderLabs> {
                       style: ElevatedButton.styleFrom(
                           primary: allColor.backGroundColor),
                       onPressed: () {},
-                      child: Text("Order Labs")),
-                  Spacer(),
+                      child: const Text("Order Labs")),
+                  const Spacer(),
                   Container(
                       height: screenHeight * 0.07,
                       child: Image.asset("assets/images/k.jpeg")),
@@ -64,7 +57,8 @@ class _OrderLabsState extends State<OrderLabs> {
                 const Spacer(),
                 Container(
                   height: screenHeight * 0.08,
-                  child: Image(image: AssetImage("assets/images/men.png")),
+                  child:
+                      const Image(image: AssetImage("assets/images/men.png")),
                 )
               ]),
               SizedBox(height: screenWidth * 0.20),
@@ -74,7 +68,7 @@ class _OrderLabsState extends State<OrderLabs> {
                     borderRadius: BorderRadius.circular(30)),
                 height: screenHeight * 0.45,
                 child: Padding(
-                  padding: EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(20),
                   child: addNewReport
                       ? Column(
                           children: [
@@ -82,7 +76,7 @@ class _OrderLabsState extends State<OrderLabs> {
                               'select a report',
                               style: TextStyle(fontSize: 20),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Center(
@@ -99,7 +93,8 @@ class _OrderLabsState extends State<OrderLabs> {
                                           value: item,
                                           child: Text(
                                             item,
-                                            style: TextStyle(fontSize: 20),
+                                            style:
+                                                const TextStyle(fontSize: 20),
                                           )))
                                       .toList(),
                                   onChanged: (item) {
@@ -108,13 +103,13 @@ class _OrderLabsState extends State<OrderLabs> {
                                     });
                                   }),
                             ),
-                            TextField(
+                            const TextField(
                               decoration:
                                   InputDecoration(labelText: 'Description'),
                               maxLines: 3,
                               keyboardType: TextInputType.multiline,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             ElevatedButton(
@@ -122,7 +117,7 @@ class _OrderLabsState extends State<OrderLabs> {
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(30)),
-                                    primary: Color(0xffb3d9ef)),
+                                    primary: const Color(0xffb3d9ef)),
                                 onPressed: () {
                                   //StoreOrderLabTest API
                                 },
@@ -143,7 +138,7 @@ class _OrderLabsState extends State<OrderLabs> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SizedBox(
+                            const SizedBox(
                               width: double.infinity,
                             ),
                             ElevatedButton(
@@ -151,12 +146,13 @@ class _OrderLabsState extends State<OrderLabs> {
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(30)),
-                                    primary: Color(0xffb3d9ef)),
+                                    primary: const Color(0xffb3d9ef)),
                                 onPressed: () {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => GivenTest()));
+                                          builder: (context) =>
+                                              const GivenTestPage()));
                                   //UserOrderLabTestList API
                                 },
                                 child: Padding(
@@ -170,7 +166,7 @@ class _OrderLabsState extends State<OrderLabs> {
                                           fontSize: screenWidth * 0.04,
                                           color: Colors.black)),
                                 )),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             ElevatedButton(
@@ -178,7 +174,7 @@ class _OrderLabsState extends State<OrderLabs> {
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(30)),
-                                    primary: Color(0xfffae5dd)),
+                                    primary: const Color(0xfffae5dd)),
                                 onPressed: () {
                                   setState(() {
                                     addNewReport = true;
@@ -195,7 +191,7 @@ class _OrderLabsState extends State<OrderLabs> {
                                           fontSize: screenWidth * 0.04,
                                           color: Colors.black)),
                                 )),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             ElevatedButton(
@@ -203,13 +199,13 @@ class _OrderLabsState extends State<OrderLabs> {
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(30)),
-                                    primary: Color(0xfffae5dd)),
+                                    primary: const Color(0xfffae5dd)),
                                 onPressed: () {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              PatientTestHistory()));
+                                              const PatientTestHistory()));
                                   // AllLabReport API
                                 },
                                 child: Padding(
@@ -260,7 +256,7 @@ class _OrderLabsState extends State<OrderLabs> {
                 ],
               ),
             )
-          : SizedBox(
+          : const SizedBox(
               width: 2,
             ),
     ));
