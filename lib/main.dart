@@ -1,7 +1,10 @@
 import 'package:design/screen/get_started.dart';
+import 'package:design/screen/others_screen/lab_report.dart';
+import 'package:design/screen/others_screen/order_labs.dart';
 import 'package:design/services/drug_interaction_service.dart';
 import 'package:design/services/forgot_password_service.dart';
 import 'package:design/services/lab_report_service.dart';
+import 'package:design/services/lab_reports_Ser.dart';
 import 'package:design/services/login_service.dart';
 import 'package:design/services/medicine_list_service.dart';
 import 'package:design/services/patient_details_service.dart';
@@ -31,11 +34,12 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => DrugInteractionService()),
         ChangeNotifierProvider(create: (_) => MedicineListService()),
         ChangeNotifierProvider(create: (_) => PcpNotestListService()),
+        ChangeNotifierProvider(create: (_) => LabReportSer()),
       ],
-      child: const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: GetStarted(),
-      ),
+      child:
+          const MaterialApp(debugShowCheckedModeBanner: false, home: OrderLabs()
+              // GetStarted(),
+              ),
     );
   }
 }
