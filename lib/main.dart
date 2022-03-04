@@ -36,10 +36,10 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => PcpNotestListService()),
         ChangeNotifierProvider(create: (_) => LabReportSer()),
       ],
-      child:
-          const MaterialApp(debugShowCheckedModeBanner: false, home: OrderLabs()
-              // GetStarted(),
-              ),
+      child: const MaterialApp(
+          debugShowCheckedModeBanner: false, home: GetStarted()
+          // GetStarted(),
+          ),
     );
   }
 }
