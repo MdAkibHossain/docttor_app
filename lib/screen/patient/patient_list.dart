@@ -143,7 +143,7 @@ class _PatientListState extends State<PatientList> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              PatientDetails()));
+                                              const PatientDetails()));
                                 },
                                 child: Container(
                                   height: screenHeight * 0.08,
@@ -177,128 +177,28 @@ class _PatientListState extends State<PatientList> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ViewPatientDetails()));
+                            builder: (context) => const ViewPatientDetails()));
                   },
-                  child: Text("View All Patient Details")),
+                  child: const Text("View All Patient Details")),
             ),
-            SizedBox(height: screenHeight * 0.02),
-            Padding(
-              padding: EdgeInsets.only(right: screenWidth * 0.25),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: screenWidth * 0.05),
-                    child: Text("Reason :",
-                        style: TextStyle(
-                            fontSize: screenWidth * 0.06,
-                            fontWeight: FontWeight.bold)),
-                  ),
-                  Spacer(),
-                  Padding(
-                    padding: EdgeInsets.only(left: screenWidth * 0.05),
-                    child: Text("Chest pain",
-                        style: TextStyle(
-                            fontSize: screenWidth * 0.05,
-                            fontWeight: FontWeight.bold)),
-                  ),
-                ],
-              ),
+            const SizedBox(
+              height: 30,
             ),
-            SizedBox(height: screenWidth * 0.01),
-            Padding(
-              padding: EdgeInsets.only(right: screenWidth * 0.25),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: screenWidth * 0.05),
-                    child: Text("Gender :",
-                        style: TextStyle(fontSize: screenWidth * 0.04)),
-                  ),
-                  Spacer(),
-                  Padding(
-                    padding: EdgeInsets.only(left: screenWidth * 0.05),
-                    child: Text("Male",
-                        style: TextStyle(fontSize: screenWidth * 0.04)),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: screenWidth * 0.01),
-            Padding(
-              padding: EdgeInsets.only(right: screenWidth * 0.25),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: screenWidth * 0.05),
-                    child: Text("Age :",
-                        style: TextStyle(fontSize: screenWidth * 0.04)),
-                  ),
-                  Spacer(),
-                  Padding(
-                    padding: EdgeInsets.only(left: screenWidth * 0.05),
-                    child: Text("51",
-                        style: TextStyle(fontSize: screenWidth * 0.04)),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: screenWidth * 0.01),
-            Padding(
-              padding: EdgeInsets.only(right: screenWidth * 0.25),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: screenWidth * 0.05),
-                    child: Text("Date :",
-                        style: TextStyle(fontSize: screenWidth * 0.04)),
-                  ),
-                  Spacer(),
-                  Padding(
-                    padding: EdgeInsets.only(left: screenWidth * 0.05),
-                    child: Text("August 25, 2021",
-                        style: TextStyle(fontSize: screenWidth * 0.04)),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: screenWidth * 0.01),
-            Padding(
-              padding: EdgeInsets.only(right: screenWidth * 0.25),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: screenWidth * 0.05),
-                    child: Text("Time :",
-                        style: TextStyle(fontSize: screenWidth * 0.04)),
-                  ),
-                  Spacer(),
-                  Padding(
-                    padding: EdgeInsets.only(left: screenWidth * 0.05),
-                    child: Text("10:50 AM",
-                        style: TextStyle(fontSize: screenWidth * 0.04)),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: screenHeight * 0.03),
             Padding(
               padding: EdgeInsets.only(
                   left: screenWidth * 0.05, right: screenWidth * 0.05),
-              child: Container(
+              child: SizedBox(
                 width: screenWidth,
                 height: screenHeight * 0.05,
                 child: Row(
                   children: [
-                    Container(
-                        child: InkWell(
-                            onTap: () {},
-                            child: Image.asset("assets/images/right.png"))),
-                    Spacer(),
-                    Container(
-                      child: InkWell(
-                          onTap: () {},
-                          child: Image.asset("assets/images/setting.png")),
-                    ),
+                    InkWell(
+                        onTap: () {},
+                        child: Image.asset("assets/images/right.png")),
+                    const Spacer(),
+                    InkWell(
+                        onTap: () {},
+                        child: Image.asset("assets/images/setting.png")),
                   ],
                 ),
               ),

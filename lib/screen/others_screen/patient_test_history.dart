@@ -25,7 +25,8 @@ class _PatientTestHistoryState extends State<PatientTestHistory> {
         itemBuilder: (ctx, i) => GestureDetector(
           child: const FadeInImage(
             placeholder: AssetImage('assets/images/upcoming.png'),
-            image: NetworkImage("imageUrl"),
+            image: NetworkImage(
+                "https://cdn.pixabay.com/photo/2018/08/14/07/06/landscape-3604825__340.jpg"),
             fit: BoxFit.cover,
           ),
           onTap: () {
